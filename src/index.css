@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 @import url("https://fonts.googleapis.com/css?family=Tinos:400,500,600,700,800&display=swap");
 .bg-primary {
@@ -589,6 +590,10 @@ picture {
 }
 
 /* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
 /* Inherit fonts for inputs and buttons */
 input,
 button,
@@ -641,7 +646,6 @@ img:not([alt]) {
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  margin: 0 0 1.2rem 0;
   font-family: "leikoregular", sans-serif;
   font-weight: 100;
   color: #223c6d;
@@ -1794,6 +1798,30 @@ html.no-cssgrid .grid-row .grid_layouts.has-six-columns .block:nth-child(6n+6) {
   }
 }
 
+* {
+  max-width: var(--measure);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+section,
+grid-l,
+footer {
+  max-width: none;
+}
+
+.max-width\:measure {
+  max-width: var(--measure);
+}
+
+.max-width\:measure\/2 {
+  max-width: calc(var(--measure) / 2);
+}
+
 .flow > * + * {
   margin-top: var(--flow-space, 1rem);
 }
@@ -1852,6 +1880,85 @@ html.no-cssgrid .grid-row .grid_layouts.has-six-columns .block:nth-child(6n+6) {
 
 .stack > * + * {
   margin-top: var(--space);
+}
+
+.box {
+  /* ↓ Padding set to the first point on the modular scale */
+  padding: var(--s1);
+  /* ↓ Assumes you have a --border-thin var */
+  border: var(--border-thin) solid;
+  /* ↓ Always apply the transparent outline, for high contrast mode */
+  outline: var(--border-thin) transparent;
+  outline-offset: calc(var(--border-thin) * -1);
+  /* ↓ The light and dark color vars */
+  --color-light: #fff;
+  --color-dark: #000;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+.box * {
+  /* ↓ Force colors to inherit from the parent
+  and honor inversion (below) */
+  color: inherit;
+}
+
+.box.invert {
+  /* ↓ The color vars inverted */
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+.center-l {
+  /* ↓ Remove padding from the width calculation */
+  box-sizing: content-box;
+  /* ↓ The maximum width is the maximum measure */
+  max-width: 60ch;
+  /* ↓ Only affect horizontal margins */
+  margin-left: auto;
+  margin-right: auto;
+  /* ↓ Apply the minimum horizontal space */
+  padding-left: var(--s1);
+  padding-right: var(--s1);
+}
+
+.grid {
+  /* ↓ Establish a grid context */
+  display: grid;
+  /* ↓ Set a gap between grid items equal to the
+  first point on the modular scale */
+  grid-gap: var(--s1);
+  grid-template-columns: 100%;
+}
+
+.grid.aboveMin {
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--measure) / 3), 1fr));
+}
+
+.frame {
+  --n: 6;
+  --d: 9;
+  padding-bottom: calc(var(--n) / var(--d) * 100%);
+  position: relative;
+}
+
+.frame > * {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame > img,
+.frame > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=index.css.map */

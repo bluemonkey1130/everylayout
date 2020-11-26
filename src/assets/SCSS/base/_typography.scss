@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Tinos:400,500,600,700,800&display=swap');
+
+@font-face {
+  font-family: 'leikoregular';
+  src: url('./assets/fonts/leiko-regular-webfont.woff2') format('woff2'),
+  url('./assets/fonts/leiko-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin: 0 0 get-size('400') 0;
+  font-family: $headings-font-family;
+  font-weight: 100;
+  color: get-color('primary');
+}
+
+h1,.h1 {
+  font-size: get-size('900');
+}
+
+h2,.h2 {
+  font-size: get-size('700');
+}
+
+h3,.h3 {
+  font-size: get-size('600');
+}
+
+h4,.h4 {
+  font-size: get-size('500');
+}
+
+h5,.h5 {
+  font-size: get-size('400');
+}
+
+h6,.h6 {
+  font-size: get-size('300');
+}
+
+a {
+  color: currentColor;
+}
+p{
+  font-size: get-size('400');
+  font-family: $paragraph-font-family;
+  font-weight: 100;
+  color: get-color('primary');
+}

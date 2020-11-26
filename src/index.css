@@ -612,7 +612,7 @@ img:not([alt]) {
   }
 }
 :root {
-  --ratio: 1.61803398875;
+  --ratio: 1.5;
   --s-5: calc(var(--s-4) / var(--ratio));
   --s-4: calc(var(--s-3) / var(--ratio));
   --s-3: calc(var(--s-2) / var(--ratio));
@@ -648,27 +648,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, .h1 {
-  font-size: 3.6rem;
+  font-size: var(--s4);
 }
 
 h2, .h2 {
-  font-size: 2.4rem;
+  font-size: var(--s3);
 }
 
 h3, .h3 {
-  font-size: 1.92rem;
+  font-size: var(--s2);
 }
 
 h4, .h4 {
-  font-size: 1.5rem;
+  font-size: var(--s1);
 }
 
 h5, .h5 {
-  font-size: 1.2rem;
+  font-size: var(--s0);
 }
 
 h6, .h6 {
-  font-size: 0.96rem;
+  font-size: var(--s0);
 }
 
 a {
@@ -676,7 +676,7 @@ a {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: var(--s0);
   font-family: "Tinos", sans-serif;
   font-weight: 100;
   color: #223c6d;

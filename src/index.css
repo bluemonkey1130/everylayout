@@ -722,7 +722,7 @@ img:not([alt]) {
   --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
   --measure: 60ch;
-  --gridsize: 2rem;
+  --gridsize: 3rem;
 }
 
 /*----------------------------------------
@@ -791,7 +791,7 @@ p {
     grid-auto-rows: minmax(min-content, max-content);
     grid-template-columns: [full-start] minmax(calc(calc(100% - 1500px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1500px) / 2), 1fr) [full-end];
     grid-template-rows: auto;
-    margin: 0 auto var(--gridsize) 0;
+    margin: 0 auto var(--gridsize) auto;
     grid-gap: var(--gridsize);
     max-width: calc(var(--measure) * 3);
     position: relative;
@@ -834,10 +834,7 @@ p {
     grid-gap: 3rem;
   }
   .grid-row .grid-layout.four-rem {
-    grid-gap: 4rem;
-  }
-  .grid-row .grid-layout *.center, .grid-row .block.has-one-column *.center {
-    text-align: center;
+    grid-gap: 2rem;
   }
   .grid-row .grid-layout.has-one-column, .grid-row .block.has-one-column.has-one-column {
     grid-template-columns: 1fr;
@@ -1920,6 +1917,14 @@ img, figure {
 
 .max-width\:measure\/2 {
   max-width: calc(var(--measure) / 2);
+}
+
+.max-width\:measure\*1\/5 {
+  max-width: calc(var(--measure) * 1.5) !important;
+}
+
+.max-width\:measure\*2 {
+  max-width: calc(var(--measure) * 2) !important;
 }
 
 .align-center *:not(figure) {

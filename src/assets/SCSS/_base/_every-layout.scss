@@ -22,6 +22,14 @@ img,figure{
 .max-width\:measure\/2 {
   max-width: calc(var(--measure) / 2);
 }
+//max-width:measure*1/5
+.max-width\:measure\*1\/5 {
+  max-width: calc(var(--measure) * 1.5) !important;
+}
+//max-width:measure*2
+.max-width\:measure\*2 {
+  max-width: calc(var(--measure) * 2) !important;
+}
 .align-center{
   *:not(figure){
     margin-left: auto;

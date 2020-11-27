@@ -5,16 +5,17 @@ class App extends Component {
     state = {
         img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80',
         reallyLongText: 'Skin base work seat now stay than. Successful itself interest radio economy maybe around. Agent explain lawyer film daughter. Green direction down ever. Remember seat imagine. Else case law. Far long indicate suggest police dream main. Travel hold explain lead into. Fight certainly case popular bank cup type. Enim ut sapiente voluptates distinctio nam minima. Ab mollitia non cupiditate. Quasi consequatur rerum eius ea officia Employer longtemps immense examiner. Permettre dos jeune puissant durant étouffer. Envoyer goût secrétaire céder. Ipsum deleniti omnis quae est saepe perspiciatis. Fugiat tempore voluptas ab. Ea quis aspernatur laboriosam in. Recevoir éclat fatiguer note envie. Midi tempête quatre expérience société taire. Posséder accord arracher pluie. Autorité vieux fin. Celui éprouver sueur ennemi poète marché. Depuis rose réponse me maître engager. Libero sit maiores delectus. Ullam non quaerat. Ipsum accusantium expedita atque alias recusandae. Commodi esse tempore veritatis quaerat assumenda. Assumenda harum dicta officiis commodi quas unde illum. Quod vero ullam dignissimos harum voluptates.',
-        longText: 'Puis contre forme fait avancer absolu lumière. Semblable accent sourire agiter parti. Ci ouvrir savoir plonger santé caractère simple. Totam voluptatem voluptates ducimus. Debitis et in ipsa. Officia ullam soluta architecto eveniet neque repellat.',
+        longText: 'Puis contre forme fait avancer absolu lumière. Semblable accent sourire agiter parti. Ci ouvrir savoir plonger santé caractère simple. Totam voluptatem voluptates ducimus. Debitis et in ipsa. Officia ullam soluta architecto eveniet neque repellat. Hic fuga ab repudiandae. Occaecati laudantium dicta occaecati error deserunt fugit ullam. Laudantium vero.',
+        text: 'Relationship night by dog compare fight. Store our arm manage. Particular firm animal stock color appear. Maiores nemo nostrum. Recusandae esse consectetur aliquam soluta necessitatibus accusamus. Nobis perferendis alias quisquam.',
         shortText: 'More such food reveal ok improve similar.',
-        text: 'Relationship night by dog compare fight. Store our arm manage. Particular firm animal stock color appear.'
+        reallyShortText: 'Radio buy raise speak.',
     }
 
     render() {
         return (
             <Fragment>
                 <header id="header" className="grid-row">
-                    <div className="grid-layout alignwide has-one-column">
+                    <div className="grid-layout standard has-one-column">
                         <div className="cluster">
                             <img className="logo" src={this.state.img} alt="Text"/>
                             <nav className="cluster">
@@ -30,12 +31,12 @@ class App extends Component {
                     </div>
                 </header>
                 <article className="grid-row">
-                    <section className="grid-layout alignwide has-one-column">
+                    <section className="grid-layout standard has-one-column">
                         <div className="stack align-center">
                             <figure className="frame">
                                 <img src={this.state.img} alt="Text"/>
                             </figure>
-                            <div className="center-l center-large">
+                            <div className="center-l max-width:measure*1/5">
                                 <h2>{this.state.shortText}</h2>
                                 <p>{this.state.longText}</p>
                                 <a href="#" className="button call-to-action right">Read More</a>
@@ -53,46 +54,44 @@ class App extends Component {
                             <img src={this.state.img} alt="Text"/>
                         </figure>
                     </section>
-                    <section className="grid-layout standard has-one-column">
-                        <form className="stack stack-large center-l">
-                            <div className="stack stack-small align-center">
-                                <h3>{this.state.shortText}</h3>
-                                <p>{this.state.longText}.</p>
-                            </div>
-                            <div className="stack stack-small">
-                                <label>Name</label>
-                                <input type="text"/>
-                            </div>
-                            <div className="stack stack-small">
-                                <label>Email*</label>
-                                <input type="email"/>
-                                <p>*please enter a valid email address</p>
-                            </div>
-                            <div className="stack stack-small">
-                                <input className="button right" type="submit" value="Submit"/>
+                    <section className="grid-layout standard has-two-columns">
+                        <div>
+                            <h3>{this.state.shortText}</h3>
+                            <p>{this.state.longText}</p>
+                            <p>{this.state.longText}</p>
+                        </div>
+                        <form className="stack stack-large">
+                            <div className="box">
+                                <div className="stack stack-small">
+                                    <h4>{this.state.reallyShortText}</h4>
+                                    <p>{this.state.text}.</p>
+                                </div>
+                                <div className="stack stack-small">
+                                    <label>Name</label>
+                                    <input type="text"/>
+                                </div>
+                                <div className="stack stack-small">
+                                    <label>Email*</label>
+                                    <input type="email"/>
+                                    <p>*please enter a valid email address</p>
+                                </div>
+                                <div className="stack stack-small">
+                                    <input className="button right" type="submit" value="Submit"/>
+                                </div>
                             </div>
                         </form>
                     </section>
-                    <section className="grid-layout standard has-two-columns leftwide">
-                        <div>
-                            <h3>{this.state.shortText}</h3>
-                            <p>{this.state.longText}.</p>
-                            <p>{this.state.text}</p>
-                        </div>
+                    <section className="grid-layout standard has-two-columns">
                         <div className="stack-small">
                             <figure className="frame">
                                 <img src={this.state.img} alt="Text"/>
                             </figure>
-                            <p>{this.state.text}</p>
+                            <p>{this.state.shortText}</p>
                         </div>
-                    </section>
-                    <section className="grid-layout standard has-two-columns rightwide">
-                        <figure className="frame">
-                            <img src={this.state.img} alt="Text"/>
-                        </figure>
                         <div>
-                            <h4>{this.state.shortText}</h4>
-                            <p>{this.state.reallyLongText}</p>
+                            <h3>{this.state.shortText}</h3>
+                            <p>{this.state.longText}.</p>
+                            <p>{this.state.text}</p>
                         </div>
                     </section>
                     <section className="grid-layout standard has-two-columns rightwide">
@@ -103,6 +102,15 @@ class App extends Component {
                         <div className="box invert">
                             <h4>{this.state.shortText}</h4>
                             <p>{this.state.longText}</p>
+                        </div>
+                    </section>
+                    <section className="grid-layout standard has-two-columns">
+                        <figure className="frame">
+                            <img src={this.state.img} alt="Text"/>
+                        </figure>
+                        <div>
+                            <h4>{this.state.shortText}</h4>
+                            <p>{this.state.reallyLongText}</p>
                         </div>
                     </section>
                 </article>

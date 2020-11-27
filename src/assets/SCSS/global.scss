@@ -14,20 +14,23 @@
 @import "_base/every-layout";
 
 // Utilities
-@import '_utilities/flow';
 @import '_utilities/radius';
-@import '_utilities/splitter';
 @import '_utilities/wrapper';
-@import '_utilities/visually-hidden';
-@import '_utilities/stack';
-@import '_utilities/box';
-@import '_utilities/center';
-@import '_utilities/the-grid';
-@import '_utilities/the-frame';
 @import '_utilities/forms';
 @import '_utilities/buttons';
-@import '_utilities/the_cluster';
-@import '_utilities/sidebar';
+@import '_utilities/visually-hidden';
 
-// layouts
+// Layout Partials
+@import '_layout_partials/flow';
+@import '_layout_partials/the_cluster';
+@import '_layout_partials/sidebar';
+@import '_layout_partials/stack';
+@import '_layout_partials/box';
+@import '_layout_partials/center';
+@import '_layout_partials/the-frame';
+@import '_layout_partials/splitter';
+@import '_layout_partials/switcher';
+@import '_layout_partials/cover';
+
+// Layouts
 @import '_layouts/header';

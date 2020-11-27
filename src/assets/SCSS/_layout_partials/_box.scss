@@ -15,7 +15,7 @@
   /* ↓ Force colors to inherit from the parent
   and honor inversion (below) */
   color: inherit;
-  &:nth-last-child(1) {
+  &:nth-last-child(1):not(.button) {
     margin-bottom: 0;
   }
 }

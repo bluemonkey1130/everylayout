@@ -12,12 +12,7 @@
     max-width: calc(var(--measure) * 5);
     position: relative;
   }
-  .grid-layout {
-    display: grid;
-    grid-auto-flow: dense;
-    grid-auto-rows: minmax(min-content, max-content);
-    grid-row: auto;
-    grid-gap: var(--gridsize);
+  .grid, .grid-layout {
     &.standard {
       grid-column-start: 3;
       grid-column-end: 13;
@@ -33,159 +28,201 @@
       grid-column-end: 15;
     }
   }
-  .has-one-column {
+  .grid {
+    // Auto columns with the same width
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    //grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+
+    grid-auto-flow: dense;
+    align-items: stretch;
+    grid-gap: var(--gridsize);
+    // Default values
+    grid-column-start: 3;
+    grid-column-end: 13;
+  }
+  .grid-layout {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-row: auto;
+    grid-gap: var(--gridsize);
+    // Default values
+    grid-column-start: 3;
+    grid-column-end: 13;
     grid-template-columns: 1fr;
-  }
 
-  .has-two-columns {
-    display: inline-grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    @media (max-width: $largeTablet) {
-      &:not(.ignore-large-tablet) {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media (max-width: $tablet) {
-      &:not(.ignore-tablet) {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media (max-width: $phablet) {
-      &:not(.ignore-phablet) {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media (max-width: $mobile) {
-      &:not(.ignore-mobile) {
-        grid-template-columns: 1fr;
-      }
+    &.has-one-column {
+      grid-template-columns: 1fr;
     }
 
-    &.rightwide {
-      grid-template-columns: repeat(3, 1fr);
-      & > {
-        *:nth-child(2n+1) {
-          grid-column: auto/ span 1;
-        }
+    &.has-two-columns {
+      display: inline-grid;
+      grid-template-columns: repeat(2, 1fr);
 
-        *:nth-child(2n+2) {
-          grid-column: auto/ span 2;
+      @media (max-width: $largeTablet) {
+        &:not(.ignore-large-tablet) {
+          grid-template-columns: 1fr;
         }
       }
       @media (max-width: $tablet) {
         &:not(.ignore-tablet) {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: $phablet) {
+        &:not(.ignore-phablet) {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: $mobile) {
+        &:not(.ignore-mobile) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      &.rightwide {
+        grid-template-columns: repeat(3, 1fr);
+
+        & > {
+          *:nth-child(2n+1) {
+            grid-column: auto/ span 1;
+          }
+
+          *:nth-child(2n+2) {
+            grid-column: auto/ span 2;
+          }
+        }
+
+        @media (max-width: $tablet) {
+          &:not(.ignore-tablet) {
+            grid-template-columns: repeat(2, 1fr);
+
+            & > {
+              *:nth-child(1n+1) {
+                grid-column: auto/ span 3;
+              }
+            }
+          }
+        }
+        @media (max-width: $phablet) {
+          &:not(.ignore-phablet) {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (max-width: $mobile) {
+          &:not(.ignore-mobile) {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
+
+      &.leftwide {
+        grid-template-columns: repeat(3, 1fr);
+
+        & > {
+          *:nth-child(2n+1) {
+            grid-column: auto/ span 2;
+          }
+
+          *:nth-child(2n+2) {
+            grid-column: auto/ span 1;
+          }
+        }
+
+        @media (max-width: $tablet) {
+          &:not(.ignore-tablet) {
+            grid-template-columns: repeat(2, 1fr);
+
+            & > {
+              *:nth-child(1n+1) {
+                grid-column: auto/ span 3;
+              }
+            }
+          }
+        }
+        @media (max-width: $phablet) {
+          &:not(.ignore-phablet) {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (max-width: $mobile) {
+          &:not(.ignore-mobile) {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
+    }
+
+    &.has-three-columns {
+      grid-template-columns: repeat(3, 1fr);
+      @media (max-width: $largeTablet) {
+        &:not(.ignore-large-tablet) {
           grid-template-columns: repeat(2, 1fr);
 
           & > {
             *:nth-child(1n+1) {
-              grid-column: auto/ span 3;
+              grid-column: auto/ span 1;
+            }
+
+            *:nth-last-child(1) {
+              grid-column: auto/ span 2;
             }
           }
         }
       }
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: $mobile) {
-        &:not(.ignore-mobile) {
-          grid-template-columns: 1fr;
-        }
-      }
-    }
-
-    &.leftwide {
-      grid-template-columns: repeat(3, 1fr);
-
-      & > {
-        *:nth-child(2n+1) {
-          grid-column: auto/ span 2;
-        }
-
-        *:nth-child(2n+2) {
-          grid-column: auto/ span 1;
-        }
-      }
-
       @media (max-width: $tablet) {
         &:not(.ignore-tablet) {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(1, 1fr);
 
           & > {
             *:nth-child(1n+1) {
-              grid-column: auto/ span 3;
+              grid-column: auto/ span 1;
             }
           }
         }
       }
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          grid-template-columns: 1fr;
-        }
-      }
       @media (max-width: $mobile) {
         &:not(.ignore-mobile) {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(1, 1fr);
         }
       }
-    }
-  }
 
-  .has-three-columns {
-    grid-template-columns: repeat(3, 1fr);
-    @media (max-width: $largeTablet) {
-      &:not(.ignore-large-tablet) {
-        grid-template-columns: repeat(2, 1fr);
+      &.leftwide {
+        grid-template: auto / repeat(8, 1fr);
 
         & > {
-          *:nth-child(1n+1) {
-            grid-column: auto/ span 1;
+          *:nth-child(3n+1) {
+            grid-column: auto/ span 4;
           }
 
-          *:nth-last-child(1) {
-            grid-column: auto/ span 2;
+          *:nth-child(3n+2) {
+            grid-column: auto/span 2;
+          }
+
+          *:nth-child(3n+3) {
+            grid-column: auto /span 2;
           }
         }
-      }
-    }
-    @media (max-width: $tablet) {
-      &:not(.ignore-tablet) {
-        grid-template-columns: repeat(1, 1fr);
 
-        & > {
-          *:nth-child(1n+1) {
-            grid-column: auto/ span 1;
+        @media (max-width: $medium) {
+          &:not(.ignore-medium) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 4;
+              }
+
+              *:nth-child(3n+2) {
+                grid-column: auto/span 4;
+              }
+
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
           }
         }
-      }
-    }
-    @media (max-width: $mobile) {
-      &:not(.ignore-mobile) {
-        grid-template-columns: repeat(1, 1fr);
-      }
-    }
-
-    &.leftwide {
-      grid-template: auto / repeat(8, 1fr);
-
-      & > {
-        *:nth-child(3n+1) {
-          grid-column: auto/ span 4;
-        }
-
-        *:nth-child(3n+2) {
-          grid-column: auto/span 2;
-        }
-
-        *:nth-child(3n+3) {
-          grid-column: auto /span 2;
-        }
-      }
-
-      @media (max-width: $medium) {
-        &:not(.ignore-medium) {
+        @media (max-width: $largeTablet) {
           & > {
             *:nth-child(3n+1) {
               grid-column: auto/ span 4;
@@ -199,23 +236,23 @@
               grid-column: auto /span 8;
             }
           }
-        }
-      }
-      @media (max-width: $largeTablet) {
-        & > {
-          *:nth-child(3n+1) {
-            grid-column: auto/ span 4;
-          }
+          &:not(.ignore-large-tablet) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 4;
+              }
 
-          *:nth-child(3n+2) {
-            grid-column: auto/span 4;
-          }
+              *:nth-child(3n+2) {
+                grid-column: auto/span 4;
+              }
 
-          *:nth-child(3n+3) {
-            grid-column: auto /span 8;
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
           }
         }
-        &:not(.ignore-large-tablet) {
+        @media (max-width: $tablet) {
           & > {
             *:nth-child(3n+1) {
               grid-column: auto/ span 4;
@@ -229,108 +266,108 @@
               grid-column: auto /span 8;
             }
           }
+          &:not(.ignore-tablet) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 8;
+              }
+
+              *:nth-child(3n+2) {
+                grid-column: auto/span 8;
+              }
+
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
+          }
+        }
+        @media (max-width: $phablet) {
+          &:not(.ignore-phablet) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 8;
+              }
+
+              *:nth-child(3n+2) {
+                grid-column: auto/span 8;
+              }
+
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
+          }
+        }
+        @media (max-width: $mobile) {
+          &:not(.ignore-mobile) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 8;
+              }
+
+              *:nth-child(3n+2) {
+                grid-column: auto/span 8;
+              }
+
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
+          }
+        }
+        @media (max-width: $smallmobile) {
+          & > {
+            *:nth-child(3n+1) {
+              grid-column: auto/ span 8;
+            }
+
+            *:nth-child(3n+2) {
+              grid-column: auto/span 8;
+            }
+
+            *:nth-child(3n+3) {
+              grid-column: auto /span 8;
+            }
+          }
         }
       }
-      @media (max-width: $tablet) {
+
+      &.rightwide {
+        grid-template: 1fr / repeat(8, 1fr);
+
         & > {
           *:nth-child(3n+1) {
-            grid-column: auto/ span 4;
+            grid-column: auto/ span 2;
           }
 
           *:nth-child(3n+2) {
-            grid-column: auto/span 4;
+            grid-column: auto/span 2;
           }
 
           *:nth-child(3n+3) {
-            grid-column: auto /span 8;
+            grid-column: auto /span 4;
           }
         }
-        &:not(.ignore-tablet) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 8;
-            }
 
-            *:nth-child(3n+2) {
-              grid-column: auto/span 8;
-            }
+        @media (max-width: $medium) {
+          &:not(.ignore-medium) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 4;
+              }
 
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-        }
-      }
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 8;
-            }
+              *:nth-child(3n+2) {
+                grid-column: auto/span 4;
+              }
 
-            *:nth-child(3n+2) {
-              grid-column: auto/span 8;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
             }
           }
         }
-      }
-      @media (max-width: $mobile) {
-        &:not(.ignore-mobile) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 8;
-            }
-
-            *:nth-child(3n+2) {
-              grid-column: auto/span 8;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-        }
-      }
-      @media (max-width: $smallmobile) {
-        & > {
-          *:nth-child(3n+1) {
-            grid-column: auto/ span 8;
-          }
-
-          *:nth-child(3n+2) {
-            grid-column: auto/span 8;
-          }
-
-          *:nth-child(3n+3) {
-            grid-column: auto /span 8;
-          }
-        }
-      }
-    }
-
-    &.rightwide {
-      grid-template: 1fr / repeat(8, 1fr);
-
-      & > {
-        *:nth-child(3n+1) {
-          grid-column: auto/ span 2;
-        }
-
-        *:nth-child(3n+2) {
-          grid-column: auto/span 2;
-        }
-
-        *:nth-child(3n+3) {
-          grid-column: auto /span 4;
-        }
-      }
-
-      @media (max-width: $medium) {
-        &:not(.ignore-medium) {
+        @media (max-width: $largeTablet) {
           & > {
             *:nth-child(3n+1) {
               grid-column: auto/ span 4;
@@ -344,24 +381,24 @@
               grid-column: auto /span 8;
             }
           }
+          &:not(.ignore-large-tablet) {
+
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 4;
+              }
+
+              *:nth-child(3n+2) {
+                grid-column: auto/span 4;
+              }
+
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
+          }
         }
-      }
-      @media (max-width: $largeTablet) {
-        & > {
-          *:nth-child(3n+1) {
-            grid-column: auto/ span 4;
-          }
-
-          *:nth-child(3n+2) {
-            grid-column: auto/span 4;
-          }
-
-          *:nth-child(3n+3) {
-            grid-column: auto /span 8;
-          }
-        }
-        &:not(.ignore-large-tablet) {
-
+        @media (max-width: $tablet) {
           & > {
             *:nth-child(3n+1) {
               grid-column: auto/ span 4;
@@ -375,336 +412,322 @@
               grid-column: auto /span 8;
             }
           }
+          &:not(.ignore-tablet) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 8;
+              }
+
+              *:nth-child(3n+2) {
+                grid-column: auto/span 8;
+              }
+
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
+          }
+        }
+        @media (max-width: $phablet) {
+          &:not(.ignore-phablet) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 8;
+              }
+
+              *:nth-child(3n+2) {
+                grid-column: auto/span 8;
+              }
+
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
+          }
+        }
+        @media (max-width: $mobile) {
+          &:not(.ignore-mobile) {
+            & > {
+              *:nth-child(3n+1) {
+                grid-column: auto/ span 8;
+              }
+
+              *:nth-child(3n+2) {
+                grid-column: auto/span 8;
+              }
+
+              *:nth-child(3n+3) {
+                grid-column: auto /span 8;
+              }
+            }
+          }
+        }
+        @media (max-width: $smallmobile) {
+          & > {
+            *:nth-child(3n+1) {
+              grid-column: auto/ span 8;
+            }
+
+            *:nth-child(3n+2) {
+              grid-column: auto/span 8;
+            }
+
+            *:nth-child(3n+3) {
+              grid-column: auto /span 8;
+            }
+          }
         }
       }
-      @media (max-width: $tablet) {
+
+      &.threeleft-split {
+        grid-template: repeat(2, auto) / repeat(8, 1fr);
+
         & > {
           *:nth-child(3n+1) {
             grid-column: auto/ span 4;
+            grid-row: 1;
           }
 
           *:nth-child(3n+2) {
-            grid-column: auto/span 4;
+            grid-column: auto/ span 4;
+            grid-row: 2;
           }
 
           *:nth-child(3n+3) {
-            grid-column: auto /span 8;
+            grid-column: auto/ span 4;
+            grid-row: 1 / span 2
           }
         }
-        &:not(.ignore-tablet) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 8;
-            }
 
-            *:nth-child(3n+2) {
-              grid-column: auto/span 8;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
+        @media (max-width: $phablet) {
+          &:not(.ignore-phablet) {
+            & > {
+              *:nth-child(1n+1) {
+                grid-column: auto/ span 8;
+                grid-row: auto;
+              }
             }
           }
         }
-      }
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 8;
-            }
-
-            *:nth-child(3n+2) {
-              grid-column: auto/span 8;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
+        @media (max-width: $mobile) {
+          &.ignore-phablet {
+            & > {
+              *:nth-child(1n+1) {
+                grid-column: auto/ span 8;
+                grid-row: auto;
+              }
             }
           }
         }
       }
-      @media (max-width: $mobile) {
-        &:not(.ignore-mobile) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 8;
-            }
 
-            *:nth-child(3n+2) {
-              grid-column: auto/span 8;
-            }
+      &.threeright-split {
+        grid-template: repeat(2, auto) / repeat(8, 1fr);
 
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-        }
-      }
-      @media (max-width: $smallmobile) {
         & > {
           *:nth-child(3n+1) {
-            grid-column: auto/ span 8;
+            grid-column: auto/ span 4;
+            grid-row: 1 / span 2
           }
 
           *:nth-child(3n+2) {
-            grid-column: auto/span 8;
+            grid-column: auto/ span 4;
+            grid-row: 1;
           }
 
           *:nth-child(3n+3) {
-            grid-column: auto /span 8;
-          }
-        }
-      }
-    }
-
-    &.threeleft-split {
-      grid-template: repeat(2, auto) / repeat(8, 1fr);
-
-      & > {
-        *:nth-child(3n+1) {
-          grid-column: auto/ span 4;
-          grid-row: 1;
-        }
-
-        *:nth-child(3n+2) {
-          grid-column: auto/ span 4;
-          grid-row: 2;
-        }
-
-        *:nth-child(3n+3) {
-          grid-column: auto/ span 4;
-          grid-row: 1 / span 2
-        }
-      }
-
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 8;
-              grid-row: auto;
-            }
-          }
-        }
-      }
-      @media (max-width: $mobile) {
-        &.ignore-phablet {
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 8;
-              grid-row: auto;
-            }
-          }
-        }
-      }
-    }
-
-    &.threeright-split {
-      grid-template: repeat(2, auto) / repeat(8, 1fr);
-
-      & > {
-        *:nth-child(3n+1) {
-          grid-column: auto/ span 4;
-          grid-row: 1 / span 2
-        }
-
-        *:nth-child(3n+2) {
-          grid-column: auto/ span 4;
-          grid-row: 1;
-        }
-
-        *:nth-child(3n+3) {
-          grid-column: auto/ span 4;
-          grid-row: 2;
-        }
-      }
-
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 8;
-              grid-row: auto;
-            }
-          }
-        }
-      }
-      @media (max-width: $mobile) {
-        &.ignore-phablet {
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 8;
-              grid-row: auto;
-            }
-          }
-        }
-      }
-    }
-
-    &.eighty {
-      max-width: 80%;
-      margin: auto;
-      @media (max-width: $tablet) {
-        max-width: 100%;
-      }
-    }
-
-    &.sixty {
-      max-width: 60%;
-      margin: auto;
-      @media (max-width: $tablet) {
-        max-width: 100%;
-      }
-    }
-
-    &.fifty {
-      max-width: 50%;
-      margin: auto;
-      @media (max-width: $tablet) {
-        max-width: 100%;
-      }
-    }
-  }
-
-  .has-four-columns {
-    &.row-four {
-      grid-template: repeat(1, auto) / repeat(4, 1fr);
-
-      @media (max-width: $medium) {
-        &:not(.ignore-medium) {
-          grid-template: repeat(2, auto) / repeat(2, 1fr);
-        }
-      }
-      @media (max-width: $largeTablet) {
-        &.ignore-medium {
-          grid-template: repeat(2, auto) / repeat(2, 1fr);
-        }
-        &:not(.ignore-large-tablet) {
-          grid-template: repeat(2, auto) / repeat(2, 1fr);
-        }
-      }
-      @media (max-width: $tablet) {
-        &:not(.ignore-tablet) {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: $mobile) {
-        &:not(.ignore-mobile) {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: $smallmobile) {
-        grid-template-columns: 1fr !important;
-      }
-    }
-
-    &.grid-four {
-      grid-template: repeat(2, auto) / repeat(2, 1fr);
-
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: $mobile) {
-        &.ignore-phablet {
-          grid-template-columns: 1fr;
-        }
-      }
-    }
-  }
-
-  .has-five-columns {
-    grid-template: repeat(1, auto) / repeat(5, 1fr);
-
-    @media (max-width: $medium) {
-      &:not(.ignore-medium) {
-        grid-template: auto / repeat(12, 1fr);
-
-        & > {
-          *:nth-child(1n+1) {
             grid-column: auto/ span 4;
+            grid-row: 2;
           }
+        }
 
-          *:nth-child(5n+4) {
-            grid-column: 3/ span 4;
+        @media (max-width: $phablet) {
+          &:not(.ignore-phablet) {
+            & > {
+              *:nth-child(1n+1) {
+                grid-column: auto/ span 8;
+                grid-row: auto;
+              }
+            }
           }
-
-          *:nth-child(5n+5) {
-            grid-column: auto/ span 4;
+        }
+        @media (max-width: $mobile) {
+          &.ignore-phablet {
+            & > {
+              *:nth-child(1n+1) {
+                grid-column: auto/ span 8;
+                grid-row: auto;
+              }
+            }
           }
         }
       }
-    }
-    @media (max-width: $largeTablet) {
-      &:not(.ignore-large-tablet) {
-        grid-template: auto / repeat(4, 1fr);
 
-        & > {
-          *:nth-child(1n+1) {
-            grid-column: auto/ span 2;
-          }
+      &.eighty {
+        max-width: 80%;
+        margin: auto;
+        @media (max-width: $tablet) {
+          max-width: 100%;
+        }
+      }
 
-          *:nth-last-child(1) {
-            grid-column: auto/ span 4;
-          }
+      &.sixty {
+        max-width: 60%;
+        margin: auto;
+        @media (max-width: $tablet) {
+          max-width: 100%;
+        }
+      }
+
+      &.fifty {
+        max-width: 50%;
+        margin: auto;
+        @media (max-width: $tablet) {
+          max-width: 100%;
         }
       }
     }
-    @media (max-width: $tablet) {
-      &:not(.ignore-tablet) {
-        grid-template: auto / repeat(2, 1fr);
 
-        & > {
-          *:nth-child(1n+1) {
-            grid-column: auto/ span 2;
+    &.has-four-columns {
+      &.row-four {
+        grid-template: repeat(1, auto) / repeat(4, 1fr);
+
+        @media (max-width: $medium) {
+          &:not(.ignore-medium) {
+            grid-template: repeat(2, auto) / repeat(2, 1fr);
           }
         }
-      }
-    }
-    @media (max-width: $phablet) {
-      &:not(.ignore-phablet) {
-        grid-template: auto / repeat(2, 1fr);
-
-        & > {
-          *:nth-child(1n+1) {
-            grid-column: auto/ span 2;
-
+        @media (max-width: $largeTablet) {
+          &.ignore-medium {
+            grid-template: repeat(2, auto) / repeat(2, 1fr);
+          }
+          &:not(.ignore-large-tablet) {
+            grid-template: repeat(2, auto) / repeat(2, 1fr);
           }
         }
+        @media (max-width: $tablet) {
+          &:not(.ignore-tablet) {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (max-width: $phablet) {
+          &:not(.ignore-phablet) {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (max-width: $mobile) {
+          &:not(.ignore-mobile) {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (max-width: $smallmobile) {
+          grid-template-columns: 1fr !important;
+        }
       }
-    }
-  }
 
-  .has-six-columns {
-    grid-template: repeat(1, auto) / repeat(6, 1fr);
-    @media (max-width: $medium-large) {
-      &:not(.ignore-medium) {
-        grid-template: repeat(2, auto) / repeat(3, 1fr);
-      }
-    }
-    @media (max-width: $medium) {
-      &:not(.ignore-medium) {
+      &.grid-four {
         grid-template: repeat(2, auto) / repeat(2, 1fr);
+
+        @media (max-width: $phablet) {
+          &:not(.ignore-phablet) {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (max-width: $mobile) {
+          &.ignore-phablet {
+            grid-template-columns: 1fr;
+          }
+        }
       }
     }
-    @media (max-width: $tablet) {
-      &:not(.ignore-tablet) {
-        grid-template: repeat(3, auto) / repeat(1, 1fr);
+
+    &.has-five-columns {
+      grid-template: repeat(1, auto) / repeat(5, 1fr);
+
+      @media (max-width: $medium) {
+        &:not(.ignore-medium) {
+          grid-template: auto / repeat(12, 1fr);
+
+          & > {
+            *:nth-child(1n+1) {
+              grid-column: auto/ span 4;
+            }
+
+            *:nth-child(5n+4) {
+              grid-column: 3/ span 4;
+            }
+
+            *:nth-child(5n+5) {
+              grid-column: auto/ span 4;
+            }
+          }
+        }
+      }
+      @media (max-width: $largeTablet) {
+        &:not(.ignore-large-tablet) {
+          grid-template: auto / repeat(4, 1fr);
+
+          & > {
+            *:nth-child(1n+1) {
+              grid-column: auto/ span 2;
+            }
+
+            *:nth-last-child(1) {
+              grid-column: auto/ span 4;
+            }
+          }
+        }
+      }
+      @media (max-width: $tablet) {
+        &:not(.ignore-tablet) {
+          grid-template: auto / repeat(2, 1fr);
+
+          & > {
+            *:nth-child(1n+1) {
+              grid-column: auto/ span 2;
+            }
+          }
+        }
+      }
+      @media (max-width: $phablet) {
+        &:not(.ignore-phablet) {
+          grid-template: auto / repeat(2, 1fr);
+
+          & > {
+            *:nth-child(1n+1) {
+              grid-column: auto/ span 2;
+
+            }
+          }
+        }
       }
     }
-    @media (max-width: $phablet) {
-      &:not(.ignore-mobile) {
-        grid-template: repeat(6, auto) / 1fr;
+
+    &.has-six-columns {
+      grid-template: repeat(1, auto) / repeat(6, 1fr);
+      @media (max-width: $medium-large) {
+        &:not(.ignore-medium) {
+          grid-template: repeat(2, auto) / repeat(3, 1fr);
+        }
+      }
+      @media (max-width: $medium) {
+        &:not(.ignore-medium) {
+          grid-template: repeat(2, auto) / repeat(2, 1fr);
+        }
+      }
+      @media (max-width: $tablet) {
+        &:not(.ignore-tablet) {
+          grid-template: repeat(3, auto) / repeat(1, 1fr);
+        }
+      }
+      @media (max-width: $phablet) {
+        &:not(.ignore-mobile) {
+          grid-template: repeat(6, auto) / 1fr;
+        }
       }
     }
   }
+
 }
 
 
@@ -714,7 +737,7 @@ html.no-cssgrid {
     margin-left: auto;
     margin-right: auto;
 
-    .grid-layout {
+    .grid-layout, .grid {
       margin: 0 auto var(--gridsize) auto;
 
       figure, form, div {

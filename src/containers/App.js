@@ -74,15 +74,13 @@ class App extends Component {
                                     <label>Email*</label>
                                     <input type="email"/>
                                     <p>*please enter a valid email address</p>
-                                </div>
-                                <div className="stack stack-small">
                                     <input className="button right" type="submit" value="Submit"/>
                                 </div>
                             </div>
                         </form>
                     </section>
                     <section className="grid-layout standard has-two-columns">
-                        <div className="stack-small">
+                        <div className="stack stack-small">
                             <figure className="frame">
                                 <img src={this.state.img} alt="Text"/>
                             </figure>
@@ -105,12 +103,28 @@ class App extends Component {
                         </div>
                     </section>
                     <section className="grid-layout standard has-two-columns">
-                        <figure className="frame">
-                            <img src={this.state.img} alt="Text"/>
-                        </figure>
                         <div>
-                            <h4>{this.state.shortText}</h4>
+                            <h3>{this.state.shortText}</h3>
+                            <h5>{this.state.shortText}</h5>
                             <p>{this.state.reallyLongText}</p>
+                        </div>
+                        <div className="stack">
+                            <figure className="frame">
+                                <img src={this.state.img} alt="Text"/>
+                                <h3 className="align-center color-tertiary">{this.state.shortText}</h3>
+                            </figure>
+                            <div className="stack stack-small box">
+                                <div>
+                                    <h4>Sign up</h4>
+                                    <p>{this.state.shortText}</p>
+                                </div>
+                                <div className="with-sidebar">
+                                    <div>
+                                        <input type="text"/>
+                                        <input className="button right" type="submit" value="Submit"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </article>

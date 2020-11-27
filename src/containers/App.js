@@ -87,6 +87,15 @@ class App extends Component {
                             <p>{this.state.text}</p>
                         </div>
                     </section>
+                    <section className="grid">
+                        <div className="reel">
+                            <img src={this.state.img} alt="Text"/>
+                            <img src={this.state.img} alt="Text"/>
+                            <img src={this.state.img} alt="Text"/>
+                            <img src={this.state.img} alt="Text"/>
+                            <img src={this.state.img} alt="Text"/>
+                        </div>
+                    </section>
                     <section className="grid-layout has-two-columns rightwide">
                         <div className="box">
                             <h4>{this.state.shortText}</h4>
@@ -125,7 +134,87 @@ class App extends Component {
                     <section className="grid">
                         <div><p>{this.state.text}</p></div>
                         <div><p>{this.state.text}</p></div>
-                        <div><p>{this.state.text}</p></div>
+                    </section>
+                    <section className="grid">
+                        <div className="reel">
+                            <div className="box invert">
+                                <div className="stack">
+                                    <div className="frame">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </div>
+                                    <div>
+                                        <h4>{this.state.reallyShortText}</h4>
+                                        <p>{this.state.shortText}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="box">
+                                <div className="stack">
+                                    <div className="frame">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </div>
+                                    <div>
+                                        <h4>{this.state.reallyShortText}</h4>
+                                        <p>{this.state.shortText}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="box invert">
+                                <div className="stack">
+                                    <div className="frame">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </div>
+                                    <div>
+                                        <h4>{this.state.reallyShortText}</h4>
+                                        <p>{this.state.shortText}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="box">
+                                <div className="stack">
+                                    <div className="frame">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </div>
+                                    <div>
+                                        <h4>{this.state.reallyShortText}</h4>
+                                        <p>{this.state.shortText}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="box invert">
+                                <div className="stack">
+                                    <div className="frame">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </div>
+                                    <div>
+                                        <h4>{this.state.reallyShortText}</h4>
+                                        <p>{this.state.shortText}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="box">
+                                <div className="stack">
+                                    <div className="frame">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </div>
+                                    <div>
+                                        <h4>{this.state.reallyShortText}</h4>
+                                        <p>{this.state.shortText}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="box invert">
+                                <div className="stack">
+                                    <div className="frame">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </div>
+                                    <div>
+                                        <h4>{this.state.reallyShortText}</h4>
+                                        <p>{this.state.shortText}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                     <section className="grid">
                         <div className="switcher">
@@ -133,41 +222,6 @@ class App extends Component {
                                 <div><p>{this.state.text}</p></div>
                                 <div><p>{this.state.text}</p></div>
                                 <div><p>{this.state.text}</p></div>
-                            </div>
-                        </div>
-                    </section>
-                    <section className="grid">
-                        <div className="box invert">
-                            <div className="stack">
-                                <div className="frame">
-                                    <img src={this.state.img} alt="Text"/>
-                                </div>
-                                <div>
-                                    <h4>{this.state.reallyShortText}</h4>
-                                    <p>{this.state.text}.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="box">
-                            <div className="stack">
-                                <div className="frame">
-                                    <img src={this.state.img} alt="Text"/>
-                                </div>
-                                <div>
-                                    <h4>{this.state.reallyShortText}</h4>
-                                    <p>{this.state.text}.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="box invert">
-                            <div className="stack">
-                                <div className="frame">
-                                    <img src={this.state.img} alt="Text"/>
-                                </div>
-                                <div>
-                                    <h4>{this.state.reallyShortText}</h4>
-                                    <p>{this.state.text}.</p>
-                                </div>
                             </div>
                         </div>
                     </section>

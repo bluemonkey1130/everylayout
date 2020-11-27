@@ -69,6 +69,7 @@ $gorko-base-size: 1.2rem;
 }
 
 $gorko-size-scale: (
+        '000': 0,
         '300': var(--size-300),
         '400': var(--size-400),
         '500': var(--size-500),

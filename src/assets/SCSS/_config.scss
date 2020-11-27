@@ -124,6 +124,15 @@ $gorko-config: (
                 'output': 'responsive',
                 'property': 'font-size'
         ),
+        'align': (
+                'items': (
+                        'right': 'right',
+                        'center': 'center',
+                        'left': 'left'
+                ),
+                'output': 'responsive',
+                'property': 'text-align'
+        ),
         'weight': (
                 'items': (
                         'light': '300',

@@ -1,4 +1,5 @@
 .box {
+  --border-thin: 1px;
   /* ↓ Padding set to the first point on the modular scale */
   padding: var(--s1);
   /* ↓ Assumes you have a --border-thin var */
@@ -6,19 +7,23 @@
   /* ↓ Always apply the transparent outline, for high contrast mode */
   outline: var(--border-thin) transparent;
   outline-offset: calc(var(--border-thin) * -1);
-  /* ↓ The light and dark color vars */
-  --color-light: #fff;
-  --color-dark: #000;
-  color: var(--color-dark);
-  background-color: var(--color-light);
+  color: get-color('dark');
+  background-color: get-color('light');
 }
+
 .box * {
   /* ↓ Force colors to inherit from the parent
   and honor inversion (below) */
   color: inherit;
+  &:nth-last-child(1) {
+    margin-bottom: 0;
+  }
 }
+
 .box.invert {
   /* ↓ The color vars inverted */
-  color: var(--color-light);
-  background-color: var(--color-dark);
+  //color: var(--color-light);
+  //background-color: var(--color-dark);
+  color: get-color('light');
+  background-color: get-color('primary');
 }

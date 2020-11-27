@@ -329,6 +329,18 @@
   font-size: 3.6rem;
 }
 
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
 .weight-light {
   font-weight: 300;
 }
@@ -398,6 +410,18 @@
     font-size: 3.6rem;
   }
 
+  .sm\:align-right {
+    text-align: right;
+  }
+
+  .sm\:align-center {
+    text-align: center;
+  }
+
+  .sm\:align-left {
+    text-align: left;
+  }
+
   .sm\:width-full {
     width: 100%;
   }
@@ -455,6 +479,18 @@
     font-size: 3.6rem;
   }
 
+  .md\:align-right {
+    text-align: right;
+  }
+
+  .md\:align-center {
+    text-align: center;
+  }
+
+  .md\:align-left {
+    text-align: left;
+  }
+
   .md\:width-full {
     width: 100%;
   }
@@ -510,6 +546,18 @@
 
   .lg\:text-900 {
     font-size: 3.6rem;
+  }
+
+  .lg\:align-right {
+    text-align: right;
+  }
+
+  .lg\:align-center {
+    text-align: center;
+  }
+
+  .lg\:align-left {
+    text-align: left;
   }
 
   .lg\:width-full {
@@ -644,11 +692,15 @@ img:not([alt]) {
   font-weight: normal;
   font-style: normal;
 }
+body {
+  color: #223c6d;
+}
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
+  margin-bottom: 1.2rem;
   font-family: "leikoregular", sans-serif;
   font-weight: 100;
-  color: #223c6d;
 }
 
 h1, .h1 {
@@ -681,9 +733,9 @@ a {
 
 p {
   font-size: var(--s0);
+  margin-bottom: 1.2rem;
   font-family: "Tinos", sans-serif;
   font-weight: 100;
-  color: #223c6d;
 }
 
 @supports (display: grid) {
@@ -1809,9 +1861,12 @@ header,
 nav,
 main,
 section,
-grid-l,
 footer {
   max-width: none;
+}
+
+img, figure {
+  max-width: 100%;
 }
 
 .max-width\:measure {
@@ -1820,6 +1875,11 @@ footer {
 
 .max-width\:measure\/2 {
   max-width: calc(var(--measure) / 2);
+}
+
+.align-center *:not(figure) {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .flow > * + * {
@@ -1867,22 +1927,29 @@ footer {
 }
 
 .stack {
-  --space: 1.5rem;
+  --space: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-
 .stack > * {
   margin-top: 0;
   margin-bottom: 0;
 }
-
 .stack > * + * {
   margin-top: var(--space);
 }
 
+.stack-small > * + * {
+  margin-top: 0.5rem;
+}
+
+.stack-large > * + * {
+  margin-top: 1.2rem;
+}
+
 .box {
+  --border-thin: 1px;
   /* ↓ Padding set to the first point on the modular scale */
   padding: var(--s1);
   /* ↓ Assumes you have a --border-thin var */
@@ -1890,11 +1957,8 @@ footer {
   /* ↓ Always apply the transparent outline, for high contrast mode */
   outline: var(--border-thin) transparent;
   outline-offset: calc(var(--border-thin) * -1);
-  /* ↓ The light and dark color vars */
-  --color-light: #fff;
-  --color-dark: #000;
-  color: var(--color-dark);
-  background-color: var(--color-light);
+  color: #1a1a1a;
+  background-color: #f3f3f3;
 }
 
 .box * {
@@ -1902,18 +1966,21 @@ footer {
   and honor inversion (below) */
   color: inherit;
 }
+.box *:nth-last-child(1) {
+  margin-bottom: 0;
+}
 
 .box.invert {
   /* ↓ The color vars inverted */
-  color: var(--color-light);
-  background-color: var(--color-dark);
+  color: #f3f3f3;
+  background-color: #223c6d;
 }
 
 .center-l {
   /* ↓ Remove padding from the width calculation */
   box-sizing: content-box;
   /* ↓ The maximum width is the maximum measure */
-  max-width: 60ch;
+  max-width: calc(var(--measure)*1.5);
   /* ↓ Only affect horizontal margins */
   margin-left: auto;
   margin-right: auto;
@@ -1959,6 +2026,78 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+input {
+  display: block;
+}
+
+.button {
+  display: inline-block;
+  font-size: var(--s0);
+  font-family: "leikoregular", sans-serif;
+  border-bottom: 1px solid transparent;
+  transition: border ease-in 200ms;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(var(--measure) / 4);
+}
+.button.left {
+  margin-left: 0;
+}
+.button.right {
+  margin-right: 0;
+}
+.button:hover {
+  text-decoration: none;
+}
+.button:focus {
+  outline-offset: 0.4rem;
+  outline: 1px dotted;
+}
+.button:active {
+  transform: scale(0.95);
+}
+.button.standard {
+  display: inline-block;
+  text-align: center;
+}
+.button.standard:after {
+  display: inline;
+  font-family: "Font Awesome 5 Free";
+  content: "  ";
+  font-weight: 900;
+  padding: 0 5px 5px 0;
+}
+.button.standard:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #223c6d;
+  transition: border ease-in 200ms;
+}
+.button.call-to-action, input.button[type=submit] {
+  display: inline-block;
+  color: #f3f3f3;
+  background-size: 100% 100%;
+  text-decoration: none;
+  padding: 0.6rem 2rem;
+  cursor: pointer;
+  background-color: #223c6d;
+  text-align: center;
+  transition: background-color ease-in 200ms;
+}
+.button.call-to-action:hover, input.button[type=submit]:hover {
+  background-color: #566d98;
+  color: #f3f3f3;
+  transition: background-color ease-in 200ms;
+}
+.button.call-to-action:after, input.button[type=submit]:after {
+  content: "";
+}
+
+input[type=submit] {
+  border-style: none;
 }
 
 /*# sourceMappingURL=index.css.map */

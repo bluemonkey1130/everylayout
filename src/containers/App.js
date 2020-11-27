@@ -11,50 +11,90 @@ class App extends Component {
         return (
             <article className="grid-row">
                 <section className="grid-layout standard has-one-column">
+                    <div className="stack pad-top-500 pad-bottom-500 center-l align-center">
+                        <figure className="frame">
+                            <img src={this.state.img} alt="Text"/>
+                        </figure>
+                        <div>
+                            <h2>More such food reveal ok improve similar.</h2>
+                            <p>Puis contre forme fait avancer absolu lumière. Semblable accent sourire agiter parti. Ci
+                                ouvrir savoir plonger santé caractère simple. Totam voluptatem voluptates ducimus.
+                                Debitis
+                                et in ipsa. Officia ullam soluta architecto eveniet neque repellat.</p>
+                            <a href="#" className="button call-to-action right">Read More</a>
+                        </div>
+                    </div>
+                </section>
+                <section className="grid-layout standard has-three-columns">
+                    <figure className="frame">
+                        <img src={this.state.img} alt="Text"/>
+                    </figure>
+                    <figure className="frame">
+                        <img src={this.state.img} alt="Text"/>
+                    </figure>
+                    <figure className="frame">
+                        <img src={this.state.img} alt="Text"/>
+                    </figure>
+                </section>
+                <section className="grid-layout standard has-two-columns">
+                    <div className="stack stack-large">
+                        <img src={this.state.img} alt="Text"/>
+                    </div>
+                    <form className="stack stack-large">
+                        <div className="stack stack-small">
+                            <h3>Dolor deserunt id.</h3>
+                            <p>Relationship night by dog compare fight. Store our arm manage. Particular firm animal
+                                stock color appear.</p>
+                        </div>
+                        <div className="stack stack-small">
+                            <label>Name</label>
+                            <input type="text"/>
+                        </div>
+                        <div className="stack stack-small">
+                            <label>Email*</label>
+                            <input type="email"/>
+                            <p>*please enter a valid email address</p>
+                        </div>
+                        <div className="stack stack-small">
+                            <input className="button right" type="submit" value="Submit"/>
+                        </div>
+                    </form>
+                </section>
+                <section className="grid-layout standard has-two-columns rightwide">
+                    <div>
+                        <h3>Down traditional help something natural important.</h3>
+                        <p>Traverser être bois tard réduire rien. Courant envelopper larme mariage porter. Habiller
+                            histoire voyage plaire résistance riche. Suivre difficile figure tempête inventer direction.
+                            Vivre sang travailler imposer résistance même douleur. Séparer bientôt nation résister ne.
+                            Nam quaerat facere porro id eius. Vero quam dolores recusandae. Labore odio perspiciatis
+                            maiores.</p>
+                        <p>Traverser être bois tard réduire rien. Courant envelopper larme mariage porter. Habiller
+                            histoire voyage plaire résistance riche. Suivre difficile figure tempête inventer direction.
+                            Vivre sang travailler imposer.</p>
+                    </div>
                     <div className="stack-small">
-                        <h1>Heading One</h1>
-                        <h2>Heading Two</h2>
-                        <h3>Heading Three</h3>
-                        <h4>Heading Four</h4>
-                        <h5>Heading Five</h5>
-                        <h6>Heading Six</h6>
-                        <p>Nu pour pièce étranger. Devant peu dame droit annoncer te. Hiver retour fois désespoir.
-                            Last body step leader million direction account week. Special yet too onto camera power
-                            civil. Almost particular level throughout.</p>
+                        <figure className="frame">
+                            <img src={this.state.img} alt="Text"/>
+                        </figure>
+                        <div className="box">
+                            <p>Provident maxime placeat. Quasi ut alias veniam veritatis earum. In temporibus cumque quas
+                                esse architecto quod ipsam.</p>
+                        </div>
                     </div>
                 </section>
                 <section className="grid-layout standard has-three-columns">
                     <div className="box invert">
-                        <p>Box CSS class usage</p>
+                        <h4>Chance for someone listen bag.</h4>
+                        <p>Inverted Box CSS class usage amener asseoir cruel.</p>
                     </div>
                     <div className="box">
-                        <p>Box CSS class usage</p>
+                        <p>Box CSS class usage Vin briller attendre avoir interrompre. Écraser animer attirer lequel
+                            écouter véritable couper. Accorder suivant beaux avouer heureux le charge malheur.</p>
                     </div>
                     <div className="box invert">
-                        <p>Box CSS class usage</p>
+                        <p>Inverted Box CSS class usage</p>
                     </div>
                 </section>
-                <section className="grid-layout standard">
-                    <div className="stack center-l">
-                        <h3>More such food reveal ok improve similar.</h3>
-                        <p>Puis contre forme fait avancer absolu lumière. Semblable accent sourire agiter parti. Ci ouvrir savoir plonger santé caractère simple.</p>
-                        <p>Ab modi rem consequatur delectus. Fugiat dicta id cumque aliquam nostrum facilis. Maiores repellendus ad eaque harum culpa suscipit.</p>
-                        <p>Ab modi rem consequatur delectus. Fugiat dicta id cumque aliquam nostrum facilis. Maiores repellendus ad eaque harum culpa suscipit.</p>
-                    </div>
-                </section>
-
-                <section className="grid-layout standard has-three-columns">
-                    <figure className="frame">
-                        <img src={this.state.img} alt="Text"/>
-                    </figure>
-                    <figure className="frame">
-                        <img src={this.state.img} alt="Text"/>
-                    </figure>
-                    <figure className="frame">
-                        <img src={this.state.img} alt="Text"/>
-                    </figure>
-                </section>
-
             </article>
         );
     }

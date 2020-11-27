@@ -961,10 +961,10 @@ p {
     display: grid;
     grid-auto-flow: dense;
     grid-auto-rows: minmax(min-content, max-content);
+    grid-gap: var(--gridsize);
     grid-template-columns: [full-start] minmax(calc(calc(100% - 1500px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1500px) / 2), 1fr) [full-end];
     grid-template-rows: auto;
     margin: 0 auto var(--gridsize) auto;
-    grid-gap: var(--gridsize);
     max-width: calc(var(--measure) * 5);
     position: relative;
   }
@@ -983,23 +983,24 @@ p {
   }
 
   .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-flow: dense;
     align-items: stretch;
-    grid-gap: var(--gridsize);
-    grid-column-start: 3;
+    display: grid;
+    grid-auto-flow: dense;
     grid-column-end: 13;
+    grid-column-start: 3;
+    grid-gap: var(--gridsize);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
   .grid-layout {
+    align-items: stretch;
     display: grid;
     grid-auto-flow: dense;
     grid-auto-rows: minmax(min-content, max-content);
-    grid-row: auto;
-    grid-gap: var(--gridsize);
-    grid-column-start: 3;
     grid-column-end: 13;
+    grid-column-start: 3;
+    grid-gap: var(--gridsize);
+    grid-row: auto;
     grid-template-columns: 1fr;
   }
   .grid-layout.has-one-column {

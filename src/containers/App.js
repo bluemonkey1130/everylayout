@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import Header from "../components/Header/Header";
 
 
 class App extends Component {
@@ -14,22 +15,7 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <header id="header" className="grid-row">
-                    <div className="grid-layout standard has-one-column">
-                        <div className="cluster">
-                            <img className="logo" src={this.state.img} alt="Text"/>
-                            <nav className="cluster">
-                                <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Shop</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Accessibility</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </header>
+                <Header img={this.state.img}/>
                 <article className="grid-row">
                     <section className="grid-layout standard has-one-column">
                         <div className="stack align-center">
@@ -111,7 +97,7 @@ class App extends Component {
                         <div className="stack">
                             <figure className="frame">
                                 <img src={this.state.img} alt="Text"/>
-                                <h3 className="align-center color-tertiary">{this.state.shortText}</h3>
+                                <h3 className="align-center weight-bold color-tertiary">{this.state.shortText}</h3>
                             </figure>
                             <div className="stack stack-small box">
                                 <div>

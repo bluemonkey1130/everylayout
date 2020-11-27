@@ -108,6 +108,16 @@ $gorko-config: (
                 'output': 'standard',
                 'property': 'padding-left'
         ),
+        'pad': (
+                'items': $gorko-size-scale,
+                'output': 'standard',
+                'property': 'padding'
+        ),
+        'margin': (
+                'items': $gorko-size-scale,
+                'output': 'standard',
+                'property': 'margin'
+        ),
         'stack': (
                 'items': (
                         '300': 0,

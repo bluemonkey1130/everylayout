@@ -1,5 +1,4 @@
 .stack {
-  --space: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -10,7 +9,7 @@
   }
 
   & > * + * {
-    margin-top: var(--space);
+    margin-top: var(--gridsize);
   }
 }
 

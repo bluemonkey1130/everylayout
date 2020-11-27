@@ -9,6 +9,9 @@
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
+  /* ↓ Remove padding from the width calculation */
+  box-sizing: content-box;
+  /* ↓ The maximum width is the maximum measure */
   width: calc(var(--measure) / 4);
   &.left{
     margin-left: 0;
@@ -52,6 +55,7 @@
     background-color: get-color('primary');
     text-align: center;
     transition: background-color ease-in 200ms;
+    @extend .radius;
 
     &:hover {
       background-color: get-color('primary-shade');

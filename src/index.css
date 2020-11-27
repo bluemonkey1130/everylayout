@@ -285,6 +285,54 @@
   padding-left: 3.6rem;
 }
 
+.pad-300 {
+  padding: 0.96rem;
+}
+
+.pad-400 {
+  padding: 1.2rem;
+}
+
+.pad-500 {
+  padding: 1.5rem;
+}
+
+.pad-600 {
+  padding: 1.92rem;
+}
+
+.pad-700 {
+  padding: 2.4rem;
+}
+
+.pad-900 {
+  padding: 3.6rem;
+}
+
+.margin-300 {
+  margin: 0.96rem;
+}
+
+.margin-400 {
+  margin: 1.2rem;
+}
+
+.margin-500 {
+  margin: 1.5rem;
+}
+
+.margin-600 {
+  margin: 1.92rem;
+}
+
+.margin-700 {
+  margin: 2.4rem;
+}
+
+.margin-900 {
+  margin: 3.6rem;
+}
+
 .stack-300 {
   z-index: 0;
 }
@@ -638,10 +686,6 @@ picture {
 }
 
 /* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
-
 /* Inherit fonts for inputs and buttons */
 input,
 button,
@@ -678,6 +722,7 @@ img:not([alt]) {
   --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
   --measure: 60ch;
+  --gridsize: 2rem;
 }
 
 /*----------------------------------------
@@ -746,9 +791,9 @@ p {
     grid-auto-rows: minmax(min-content, max-content);
     grid-template-columns: [full-start] minmax(calc(calc(100% - 1500px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1500px) / 2), 1fr) [full-end];
     grid-template-rows: auto;
-    margin: 0 auto;
-    grid-gap: 1.2rem;
-    max-width: 1920px;
+    margin: 0 auto var(--gridsize) 0;
+    grid-gap: var(--gridsize);
+    max-width: calc(var(--measure) * 3);
     position: relative;
   }
   .grid-row .grid-layout {
@@ -756,7 +801,7 @@ p {
     grid-auto-flow: dense;
     grid-auto-rows: minmax(min-content, max-content);
     grid-row: auto;
-    grid-gap: 1.2rem;
+    grid-gap: var(--gridsize);
   }
   .grid-row .grid-layout.standard {
     grid-column-start: 3;
@@ -854,41 +899,14 @@ p {
       grid-template-columns: 1fr;
     }
   }
-  .grid-row .grid-layout.has-two-columns.leftwide, .grid-row .grid-layout .block.has-two-columns.leftwide {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .grid-row .grid-layout.has-two-columns.leftwide > *:nth-child(2n+1), .grid-row .grid-layout .block.has-two-columns.leftwide > *:nth-child(2n+1) {
-    grid-column: auto/span 1;
-  }
-  .grid-row .grid-layout.has-two-columns.leftwide > *:nth-child(2n+2), .grid-row .grid-layout .block.has-two-columns.leftwide > *:nth-child(2n+2) {
-    grid-column: auto/span 2;
-  }
-  @media (max-width: 767px) {
-    .grid-row .grid-layout.has-two-columns.leftwide:not(.ignore-tablet), .grid-row .grid-layout .block.has-two-columns.leftwide:not(.ignore-tablet) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .grid-row .grid-layout.has-two-columns.leftwide:not(.ignore-tablet) > *:nth-child(1n+1), .grid-row .grid-layout .block.has-two-columns.leftwide:not(.ignore-tablet) > *:nth-child(1n+1) {
-      grid-column: auto/span 3;
-    }
-  }
-  @media (max-width: 575px) {
-    .grid-row .grid-layout.has-two-columns.leftwide:not(.ignore-phablet), .grid-row .grid-layout .block.has-two-columns.leftwide:not(.ignore-phablet) {
-      grid-template-columns: 1fr;
-    }
-  }
-  @media (max-width: 480px) {
-    .grid-row .grid-layout.has-two-columns.leftwide:not(.ignore-mobile), .grid-row .grid-layout .block.has-two-columns.leftwide:not(.ignore-mobile) {
-      grid-template-columns: 1fr;
-    }
-  }
   .grid-row .grid-layout.has-two-columns.rightwide, .grid-row .grid-layout .block.has-two-columns.rightwide {
     grid-template-columns: repeat(3, 1fr);
   }
   .grid-row .grid-layout.has-two-columns.rightwide > *:nth-child(2n+1), .grid-row .grid-layout .block.has-two-columns.rightwide > *:nth-child(2n+1) {
-    grid-column: auto/span 2;
+    grid-column: auto/span 1;
   }
   .grid-row .grid-layout.has-two-columns.rightwide > *:nth-child(2n+2), .grid-row .grid-layout .block.has-two-columns.rightwide > *:nth-child(2n+2) {
-    grid-column: auto/span 1;
+    grid-column: auto/span 2;
   }
   @media (max-width: 767px) {
     .grid-row .grid-layout.has-two-columns.rightwide:not(.ignore-tablet), .grid-row .grid-layout .block.has-two-columns.rightwide:not(.ignore-tablet) {
@@ -905,6 +923,33 @@ p {
   }
   @media (max-width: 480px) {
     .grid-row .grid-layout.has-two-columns.rightwide:not(.ignore-mobile), .grid-row .grid-layout .block.has-two-columns.rightwide:not(.ignore-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+  .grid-row .grid-layout.has-two-columns.leftwide, .grid-row .grid-layout .block.has-two-columns.leftwide {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-row .grid-layout.has-two-columns.leftwide > *:nth-child(2n+1), .grid-row .grid-layout .block.has-two-columns.leftwide > *:nth-child(2n+1) {
+    grid-column: auto/span 2;
+  }
+  .grid-row .grid-layout.has-two-columns.leftwide > *:nth-child(2n+2), .grid-row .grid-layout .block.has-two-columns.leftwide > *:nth-child(2n+2) {
+    grid-column: auto/span 1;
+  }
+  @media (max-width: 767px) {
+    .grid-row .grid-layout.has-two-columns.leftwide:not(.ignore-tablet), .grid-row .grid-layout .block.has-two-columns.leftwide:not(.ignore-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-row .grid-layout.has-two-columns.leftwide:not(.ignore-tablet) > *:nth-child(1n+1), .grid-row .grid-layout .block.has-two-columns.leftwide:not(.ignore-tablet) > *:nth-child(1n+1) {
+      grid-column: auto/span 3;
+    }
+  }
+  @media (max-width: 575px) {
+    .grid-row .grid-layout.has-two-columns.leftwide:not(.ignore-phablet), .grid-row .grid-layout .block.has-two-columns.leftwide:not(.ignore-phablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 480px) {
+    .grid-row .grid-layout.has-two-columns.leftwide:not(.ignore-mobile), .grid-row .grid-layout .block.has-two-columns.leftwide:not(.ignore-mobile) {
       grid-template-columns: 1fr;
     }
   }
@@ -1886,7 +1931,7 @@ img, figure {
   margin-top: var(--flow-space, 1rem);
 }
 
-.radius {
+.radius, .button.call-to-action, input.button[type=submit] {
   border-radius: 0.5rem;
 }
 
@@ -1927,7 +1972,6 @@ img, figure {
 }
 
 .stack {
-  --space: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1937,7 +1981,7 @@ img, figure {
   margin-bottom: 0;
 }
 .stack > * + * {
-  margin-top: var(--space);
+  margin-top: var(--gridsize);
 }
 
 .stack-small > * + * {
@@ -1980,13 +2024,13 @@ img, figure {
   /* ↓ Remove padding from the width calculation */
   box-sizing: content-box;
   /* ↓ The maximum width is the maximum measure */
-  max-width: calc(var(--measure)*1.5);
+  max-width: calc(var(--measure)*1);
   /* ↓ Only affect horizontal margins */
   margin-left: auto;
   margin-right: auto;
-  /* ↓ Apply the minimum horizontal space */
-  padding-left: var(--s1);
-  padding-right: var(--s1);
+}
+.center-l.center-large {
+  max-width: calc(var(--measure)*1.5);
 }
 
 .grid {
@@ -2042,6 +2086,9 @@ input {
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
+  /* ↓ Remove padding from the width calculation */
+  box-sizing: content-box;
+  /* ↓ The maximum width is the maximum measure */
   width: calc(var(--measure) / 4);
 }
 .button.left {
@@ -2098,6 +2145,41 @@ input {
 
 input[type=submit] {
   border-style: none;
+}
+
+/* ↓ No need for an additional, outer wrapping element */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  --space: 1rem;
+  overflow: hidden;
+}
+.cluster > img {
+  margin: 0;
+}
+
+.cluster > * {
+  display: flex;
+  flex-wrap: wrap;
+  /* ↓ multiply by -1 to negate the halved value */
+  margin: calc(var(--space) / 2 * -1);
+}
+
+.cluster > * > * {
+  /* ↓ half the value, because of the 'doubling up' */
+  margin: calc(var(--space) / 2);
+}
+
+#header .cluster {
+  justify-content: space-between;
+  align-items: center;
+}
+#header .cluster .logo {
+  max-width: 100px;
+}
+#header .cluster nav ul {
+  padding-left: 0;
+  list-style: none;
 }
 
 /*# sourceMappingURL=index.css.map */

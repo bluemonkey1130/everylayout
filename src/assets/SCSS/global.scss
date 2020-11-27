@@ -15,7 +15,6 @@
 
 // Utilities
 @import '_utilities/radius';
-@import '_utilities/wrapper';
 @import '_utilities/forms';
 @import '_utilities/buttons';
 @import '_utilities/visually-hidden';
@@ -32,6 +31,8 @@
 @import '_layout_partials/switcher';
 @import '_layout_partials/cover';
 @import '_layout_partials/reel';
+@import '_layout_partials/wrapper';
+
 
 // Layouts
 @import '_layouts/header';

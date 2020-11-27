@@ -1,7 +1,7 @@
 .button {
   display: inline-block;
   //font-size: get-size('400');
-  font-size: var(--s0);
+  font-size: get-size('400');
   font-family: $headings-font-family;
   border-bottom: 1px solid transparent;
   transition: border ease-in 200ms;

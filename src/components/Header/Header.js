@@ -35,11 +35,13 @@ class Header extends Component {
     }
 
     render() {
+        let rowWidth = null ? this.props.content.width  : 'standard';
+
         return (
             <header id="header" className="grid-row">
-                <div className="grid-layout standard has-one-column">
+                <div className={["grid-layout", rowWidth, "has-one-column"].join(' ')}>
                     <div className="cluster">
-                        <img className="logo" src={this.props.img} alt="Text"/>
+                        <img className="logo" src={this.props.content.img} alt="Text"/>
                         <nav className="cluster">
                             <ul>
                                 <li><a href="#">About</a></li>

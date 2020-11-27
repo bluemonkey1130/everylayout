@@ -4,6 +4,11 @@ import Header from "../components/Header/Header";
 
 class App extends Component {
     state = {
+        header: {
+            width: 'standard',
+            img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80',
+        },
+
         img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80',
         reallyLongText: 'Skin base work seat now stay than. Successful itself interest radio economy maybe around. Agent explain lawyer film daughter. Green direction down ever. Remember seat imagine. Else case law. Far long indicate suggest police dream main. Travel hold explain lead into. Fight certainly case popular bank cup type. Enim ut sapiente voluptates distinctio nam minima. Ab mollitia non cupiditate. Quasi consequatur rerum eius ea officia Employer longtemps immense examiner. Permettre dos jeune puissant durant étouffer. Envoyer goût secrétaire céder. Ipsum deleniti omnis quae est saepe perspiciatis. Fugiat tempore voluptas ab. Ea quis aspernatur laboriosam in. Recevoir éclat fatiguer note envie. Midi tempête quatre expérience société taire. Posséder accord arracher pluie. Autorité vieux fin. Celui éprouver sueur ennemi poète marché. Depuis rose réponse me maître engager. Libero sit maiores delectus. Ullam non quaerat. Ipsum accusantium expedita atque alias recusandae. Commodi esse tempore veritatis quaerat assumenda. Assumenda harum dicta officiis commodi quas unde illum. Quod vero ullam dignissimos harum voluptates.',
         longText: 'Puis contre forme fait avancer absolu lumière. Semblable accent sourire agiter parti. Ci ouvrir savoir plonger santé caractère simple. Totam voluptatem voluptates ducimus. Debitis et in ipsa. Officia ullam soluta architecto eveniet neque repellat. Hic fuga ab repudiandae. Occaecati laudantium dicta occaecati error deserunt fugit ullam. Laudantium vero.',
@@ -15,14 +20,14 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <Header img={this.state.img}/>
+                <Header content={this.state.header}/>
                 <article className="grid-row">
                     <section className="grid-layout standard has-one-column">
                         <div className="stack align-center">
                             <figure className="frame">
                                 <img src={this.state.img} alt="Text"/>
                             </figure>
-                            <div className="center-l max-width:measure*1/5">
+                            <div className="center-l max-width:measure*2">
                                 <h2>{this.state.shortText}</h2>
                                 <p>{this.state.longText}</p>
                                 <a href="#" className="button call-to-action right">Read More</a>
@@ -88,7 +93,7 @@ class App extends Component {
                             <p>{this.state.longText}</p>
                         </div>
                     </section>
-                    <section className="grid-layout standard has-two-columns">
+                    <section className="grid-layout standard grid-gap-400  has-two-columns">
                         <div>
                             <h3>{this.state.shortText}</h3>
                             <h5>{this.state.shortText}</h5>

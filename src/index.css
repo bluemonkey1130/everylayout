@@ -969,10 +969,6 @@ p {
     position: relative;
   }
 
-  .grid.standard, .grid-layout.standard {
-    grid-column-start: 3;
-    grid-column-end: 13;
-  }
   .grid.alignwide, .grid-layout.alignwide {
     grid-column-start: 2;
     grid-column-end: 14;
@@ -1001,9 +997,6 @@ p {
     grid-column-start: 3;
     grid-gap: var(--gridsize);
     grid-row: auto;
-    grid-template-columns: 1fr;
-  }
-  .grid-layout.has-one-column {
     grid-template-columns: 1fr;
   }
   .grid-layout.has-two-columns {

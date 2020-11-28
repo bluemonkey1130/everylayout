@@ -12,10 +12,6 @@
     position: relative;
   }
   .grid, .grid-layout {
-    &.standard {
-      grid-column-start: 3;
-      grid-column-end: 13;
-    }
 
     &.alignwide {
       grid-column-start: 2;
@@ -47,10 +43,6 @@
     grid-gap: var(--gridsize);
     grid-row: auto;
     grid-template-columns: 1fr;
-
-    &.has-one-column {
-      grid-template-columns: 1fr;
-    }
 
     &.has-two-columns {
       display: inline-grid;

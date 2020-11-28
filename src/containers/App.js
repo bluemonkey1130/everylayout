@@ -5,7 +5,7 @@ import Header from "../components/Header/Header";
 class App extends Component {
     state = {
         header: {
-            width: 'standard',
+            width: '',
             img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80',
             reallyShortText: 'Radio buy raise speak.',
             shortText: 'More such food reveal ok improve similar.',
@@ -43,7 +43,7 @@ class App extends Component {
                             </div>
                         </div>
                     </section>
-                    <section className="grid ">
+                    <section className="grid align-full grid-gap-900">
                         <figure className="frame">
                             <img src={this.state.img} alt="Text"/>
                         </figure>
@@ -101,7 +101,7 @@ class App extends Component {
                             <img src={this.state.img} alt="Text"/>
                         </div>
                     </section>
-                    <section className="grid-layout has-two-columns rightwide">
+                    <section className="grid-layout has-two-columns right-wide">
                         <div className="box">
                             <h4>{this.state.shortText}</h4>
                             <p>{this.state.text}</p>

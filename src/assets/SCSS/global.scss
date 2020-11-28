@@ -1,8 +1,10 @@
 // First up: config
 @import 'config';
+@import '_utilities/low-specificity';
 
 // Next: pull in gorko for design tokens
 @import '../../../node_modules/gorko/gorko.scss';
+
 
 // Pull in modern reset
 @import '_base/reset';
@@ -17,7 +19,7 @@
 @import '_utilities/radius';
 @import '_utilities/forms';
 @import '_utilities/buttons';
-@import '_utilities/visually-hidden';
+
 
 // Layout Partials
 @import '_layout_partials/flow';

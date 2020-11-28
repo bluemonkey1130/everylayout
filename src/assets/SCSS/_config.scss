@@ -23,7 +23,7 @@ $paragraph-font-family: 'Tinos', sans-serif;
 /// you keep it at 1rem because that is the root font size. You
 /// can set it to whatever you like and whatever unit you like.
 ///
-$gorko-base-size: 1.2rem;
+$gorko-base-size: 1.2rem !default;
 
 /// SIZE SCALE
 /// This is a Major Third scale that powers all the utilities that

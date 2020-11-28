@@ -1,8 +1,9 @@
-###This is a test build of a new set of css principles.
+### This is a test build of a new set of css principles.
+#### This branch focuses on keeping CSS separate from Javascript, the other branch will use components
 I've leveraged **every layout** organisation ideas combined with my own styling. The idea is to create powerful CSS that is scalable and fast to write, I've done a few experiments with CSS applications in JavaScript Frameworks. And i think keeping CSS and JavaScript seperate is the best idea. Some of the component stuff does look powerful, but I'm unsure about it's effect on writing clean semantic markup.
 A interesting part of this project is gorko, which is used to rapidly create utility classes based on CSS variables.
 
-Pages are built upon the idea of grid rows, with the following structure.
+**Pages are built upon the idea of grid rows, with the following structure.**
 ````html
 <article class="grid-row"> 
     <section class="grid"><!-- automatic column number -->
@@ -52,12 +53,12 @@ By default they are set to the `standard` width.
         <div><!-- --></div>  
         <div><!-- --></div>
     </section>
-    <section class="grid alignwide">
+    <section class="grid align-wide">
         <div><!-- --></div> 
         <div><!-- --></div>  
         <div><!-- --></div>
     </section>
-    <section class="grid alignfull">
+    <section class="grid align-full">
         <div><!-- --></div> 
         <div><!-- --></div>  
         <div><!-- --></div>
@@ -76,13 +77,32 @@ Whereas the `.grid-layout` class name, which can be used in the place of `.grid`
     </section>
 </article>
 ```
-These classes can be used to enforce column structures
+These classes can be used to enforce column structures like below
 ```html
-.has-one-column, .has-two-columns, .has-three-columns, .has-four-columns etc..
+.has-one-column / .has-two-columns / .has-three-columns / .has-four-columns etc / ...
 ```
 ```html
 <article class="grid-row">
     <section class="grid-layout has-two-columns"> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+</article>
+```
+Some of these layouts have modifiers classes to adjust the ratios of the column structure
+```html
+<article class="grid-row">
+    <section class="grid-layout has-two-columns"> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+    <section class="grid-layout has-two-columns left-wide"> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+    <section class="grid-layout has-two-columns right-wide"> 
+        <div><!-- --></div> 
         <div><!-- --></div> 
     </section>
 </article>

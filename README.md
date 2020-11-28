@@ -41,14 +41,45 @@ Successive rows can be used to create whole pages
     </section>
 </article>
 ```
-`.grid-row` is a wrapper for as many `.grid` elements as you want. Each `.grid` element can be set to a different widths: `standard`, `alignwide` & `alignfull`. Each row sits on a 14 column grid, 12 hav fixed width, and the two outermost spread to as large a possible.
+`.grid-row` is a wrapper for as many `.grid` elements as you want. Each `.grid` element can be set to a different widths: `standard`, `alignwide` & `alignfull`.
+
+In this image you can see the different widths: the top row is `.align-full`, the second row is `.align-wide` and the bottom row is aligned to the `.standard` witdth 
+
+![image of grid colmns](./src/assets/images/twelve-column.png "shows the three ")
 
 This approach allows flexibility when building up pages with combinations of coloured backgrounds and different margins.
-
-By default they are set to the `standard` width.
+```scss
+  .grid-row {
+    align-items: stretch;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-template-columns: [full-start] minmax(calc(calc(100% - 1500px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1500px) / 2), 1fr) [full-end];
+    grid-template-rows: auto;
+    margin: 0 auto var(--gridsize) auto;
+    max-width: calc(var(--measure) * 5);
+    position: relative;
+  }
+```
+This CSS grid applied to `.grid-row` is a 14 column grid, 12 have a fixed width, and the two outermost spread to as large a possible. This is used control the `.grid` width options:
+```scss
+.standard { // Declared as the default, no need to declare the class
+  grid-column-start: 3;
+  grid-column-end: 13;
+}
+.align-wide {
+  grid-column-start: 2;
+  grid-column-end: 14;
+}
+.align-full {
+  grid-column-start: 1;
+  grid-column-end: 15;
+}
+```
+By default they are set to the `standard` width, which doesn't need to be declared  
 ```html
 <article class="grid-row">
-    <section class="grid ">
+    <section class="grid">
         <div><!-- --></div> 
         <div><!-- --></div>  
         <div><!-- --></div>
@@ -65,11 +96,34 @@ By default they are set to the `standard` width.
     </section>
 </article>
 ```
-The `.grid` automatically sets the column number to match the number of child siblings with a minimum width of 250px
-````html    
+`.grid-row`'s can be separated out to allow for further separation when wanting to apply different background colours or images that should span full width
+```html
+<article>
+    <section class="grid-row bg-primary">
+        <div class="grid align-wide">
+            <div><!-- --></div> 
+            <div><!-- --></div>  
+        </div>
+    </section>
+    <section class="grid-row">
+        <div class="grid">
+            <div><!-- --></div> 
+            <div><!-- --></div>  
+        </div>
+    </section>
+    <section class="grid-row bg-primary">
+        <div class="grid align-wide">
+            <div><!-- --></div> 
+            <div><!-- --></div>  
+        </div>
+    </section>
+</article>
+```
+The `.grid` inside of the `.grid-row` automatically sets the column number to match the number of child elements with a minimum width of 250px
+````scss    
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 ````
-Whereas the `.grid-layout` class name, which can be used in the place of `.grid` will allow you to set fixed column structures, such as:
+Whereas the `.grid-layout` class, which can be used in the place of `.grid` will allow you to set fixed column structures, such as:
 ```html
 <article class="grid-row">
     <section class="grid-layout"> <!-- By default it will set up one column -->
@@ -78,7 +132,7 @@ Whereas the `.grid-layout` class name, which can be used in the place of `.grid`
 </article>
 ```
 These classes can be used to enforce column structures like below
-```html
+```scss
 .has-one-column / .has-two-columns / .has-three-columns / .has-four-columns etc / ...
 ```
 ```html
@@ -89,7 +143,7 @@ These classes can be used to enforce column structures like below
     </section>
 </article>
 ```
-Some of these layouts have modifiers classes to adjust the ratios of the column structure
+Some of these layouts have modifier classes to adjust the ratios of the column structure
 ```html
 <article class="grid-row">
     <section class="grid-layout has-two-columns"> 
@@ -106,8 +160,22 @@ Some of these layouts have modifiers classes to adjust the ratios of the column 
     </section>
 </article>
 ```
+It will enforce the column layout regardless of the number of child elements.
+```html
+<article class="grid-row">
+    <section class="grid-layout has-three-columns">  <!-- Still three columns -->
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+</article>
+```
 
 Global CSS variables are used to set/store all the values for `margins`, `max-width`,`grid-gap` & `padding` etc.... 
+
 These values can be set globally & adjusted for local elements. 
 ```scss
 $gorko-base-size: 1.2rem !default;
@@ -130,19 +198,26 @@ $gorko-base-size: 1.2rem !default;
   --size-800: #{$gorko-base-size * 2.5};
   --size-900: #{$gorko-base-size * 3};
 
-  --measure: 60ch; // Multiplications of this value are used to set proportionally widths all over the site
+  --measure: 60ch; 
   --grid-gap: var(--size-500);
   --flow-space: var(--size-800);
 }
 ```
+Multiplications of these base values are used to set  widths proportionally all over the site
+```scss
+.grid-row {
+    margin: 0 auto var(--gridsize) auto;
+    max-width: calc(var(--measure) * 5);
+}
+```
 Utility classes dynamically generated by Goko from these values, can be used to adjust elements
-```html
-.grid-gap-000 / grid-gap-300 / grid-gap-400 /grid-gap-500 / grid-gap-600 
+```scss
+.grid-gap-000 / .grid-gap-300 / .grid-gap-400 / .grid-gap-500 / .grid-gap-600 
 ```
-```html
-.pad-000 / pad-300 / pad-400 / pad-500 / pad-600 
+```scss
+.pad-000 / .pad-300 / .pad-400 / .pad-500 / .pad-600 
 ```
-```html
+```scss
 .bg-primary / .bg-primary-shade / .bg-secondary / .bg-secondary-shade / .bg-tertiary 
 ```
 This set up below makes a full width row with three columns & no gap between the elements

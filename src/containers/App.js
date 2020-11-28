@@ -54,7 +54,7 @@ class App extends Component {
                             <img src={this.state.img} alt="Text"/>
                         </figure>
                     </section>
-                    <section className="grid">
+                    <section className="grid align-wide">
                         <div>
                             <h3>{this.state.shortText}</h3>
                             <p>{this.state.longText}</p>

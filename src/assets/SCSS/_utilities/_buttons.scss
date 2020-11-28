@@ -1,7 +1,6 @@
 .button {
   display: inline-block;
-  //font-size: get-size('400');
-  font-size: get-size('400');
+  font-size: var(--size-400);
   font-family: $headings-font-family;
   border-bottom: 1px solid transparent;
   transition: border ease-in 200ms;
@@ -13,12 +12,7 @@
   box-sizing: content-box;
   /* ↓ The maximum width is the maximum measure */
   width: calc(var(--measure) / 4);
-  //&.left{
-  //  margin-left: 0;
-  //}
-  //&.right{
-  //  margin-right: 0;
-  //}
+
   &:hover{
     text-decoration: none;
   }
@@ -41,24 +35,24 @@
     }
     &:hover{
       text-decoration: none;
-      border-bottom: 1px solid get-color('primary');
+      border-bottom: 1px solid var(--primary);
       transition: border ease-in 200ms;
     }
   }
   &.call-to-action {
     display: inline-block;
-    color: get-color('light');
+    color: var(--light);
     background-size: 100% 100%;
     text-decoration: none;
     padding: 0.6rem 2rem;
     cursor: pointer;
-    background-color: get-color('primary');
+    background-color: var(--primary);
     text-align: center;
     transition: background-color ease-in 200ms;
 
     &:hover {
-      background-color: get-color('primary-shade');
-      color: get-color('light');
+      background-color: var(--primary-shade);
+      color: var(--light);
       transition: background-color ease-in 200ms;
     }
 

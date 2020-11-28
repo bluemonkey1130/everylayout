@@ -1,14 +1,14 @@
 .box {
   --border-thin: 1px;
   /* ↓ Padding set to the first point on the modular scale */
-  padding: get-size('500');
+  padding: var(--size-500);
   /* ↓ Assumes you have a --border-thin var */
   border: var(--border-thin) solid;
   /* ↓ Always apply the transparent outline, for high contrast mode */
   outline: var(--border-thin) transparent;
   outline-offset: calc(var(--border-thin) * -1);
-  color: get-color('dark');
-  background-color: get-color('light');
+  color: var(--dark);
+  background-color: var(--light);
 }
 
 .box * {
@@ -24,6 +24,6 @@
   /* ↓ The color vars inverted */
   //color: var(--color-light);
   //background-color: var(--color-dark);
-  color: get-color('light');
-  background-color: get-color('primary');
+  color: var(--light);
+  background-color: var(--primary);
 }

@@ -43,7 +43,7 @@ class App extends Component {
                             </div>
                         </div>
                     </section>
-                    <section className="grid align-full grid-gap-900">
+                    <section className="grid align-full grid-gap-000">
                         <figure className="frame">
                             <img src={this.state.img} alt="Text"/>
                         </figure>
@@ -92,7 +92,7 @@ class App extends Component {
                             <p>{this.state.text}</p>
                         </div>
                     </section>
-                    <section className="grid">
+                    <section className="grid align-full">
                         <div className="reel">
                             <img src={this.state.img} alt="Text"/>
                             <img src={this.state.img} alt="Text"/>

@@ -3,5 +3,5 @@
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 get-size('500'); // The get-size function comes from Gorko and allows us to grab a size ratio value based on the key.
+  padding: 0 var(--size-500); // The get-size function comes from Gorko and allows us to grab a size ratio value based on the key.
 }

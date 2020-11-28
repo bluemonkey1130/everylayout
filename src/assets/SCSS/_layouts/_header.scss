@@ -1,7 +1,7 @@
 #header {
   --space: var(--size-500);
   padding: var(--space) 0;
-  background-color: get-color('light');
+  background-color: var(--light);
   &.fixed{
     position: fixed;
     width: 100%;

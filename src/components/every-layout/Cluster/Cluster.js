@@ -6,6 +6,7 @@
  * @property {string} align=center A CSS `align-items` value
  * @property {string} space=var(--s1) A CSS `margin` value. The minimum space between the clustered child elements.
  */
+import './Cluster.css'
 export default class Cluster extends HTMLElement {
   constructor() {
     super();

@@ -5,6 +5,7 @@
  * @property {string} min=250px A CSS length value representing x in `minmax(min(x, 100%), 1fr)`
  * @property {string} space=var(--s1) The space between grid cells
  */
+import './Grid.css'
 export default class Grid extends HTMLElement {
   constructor() {
     super();

@@ -8,6 +8,7 @@
  * @property {boolean} gutters=0 The minimum space on either side of the content
  * @property {boolean} intrinsic=false Center child elements based on their content width
  */
+import './Center.css'
 export default class Center extends HTMLElement {
   constructor() {
     super();

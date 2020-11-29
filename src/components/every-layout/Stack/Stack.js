@@ -7,6 +7,7 @@
  * @property {boolean} recursive=false Whether the spaces apply recursively (i.e. regardless of nesting level)
  * @property {number} splitAfter=null The element after which to _split_ the stack with an auto margin
  */
+import './Stack.css'
 export default class Stack extends HTMLElement {
   constructor() {
     super();

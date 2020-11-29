@@ -17,14 +17,6 @@ $smallmobile: 375px;
 $headings-font-family: 'leikoregular', sans-serif;
 $paragraph-font-family: 'Tinos', sans-serif;
 
-
-/// BASE SIZE
-/// All calculations are based on this. It’s recommended that
-/// you keep it at 1rem because that is the root font size. You
-/// can set it to whatever you like and whatever unit you like.
-///
-$gorko-base-size: 1.2rem !default;
-
 /// SIZE SCALE
 /// This is a Major Third scale that powers all the utilities that
 /// it is relevant for (font-size, margin, padding). All items are
@@ -32,18 +24,19 @@ $gorko-base-size: 1.2rem !default;
 /// your whole project.
 ///
 :root {
-  //--ratio: 1.5;
-  //--s-5: calc(var(--s-4) / var(--ratio));
-  //--s-4: calc(var(--s-3) / var(--ratio));
-  //--s-3: calc(var(--s-2) / var(--ratio));
-  //--s-2: calc(var(--s-1) / var(--ratio));
-  //--s-1: calc(var(--s0) / var(--ratio));
-  //--s0: $gorko-base-size;
-  //--s1: calc(var(--s0) * var(--ratio));
-  //--s2: calc(var(--s1) * var(--ratio));
-  //--s3: calc(var(--s2) * var(--ratio));
-  //--s4: calc(var(--s3) * var(--ratio));
-  //--s5: calc(var(--s4) * var(--ratio));
+  --ratio: 1.61803399;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --zero: 0rem;
+  --s0: 0.8rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
 
   --primary: #223c6d;
   --primary-shade: #566d98;
@@ -55,29 +48,24 @@ $gorko-base-size: 1.2rem !default;
   --grey: #c4c4c4;
   --light: #f3f3f3;
 
-  --size-300: #{$gorko-base-size * 0.8};
-  --size-400: #{$gorko-base-size};
-  --size-500: #{$gorko-base-size * 1.25};
-  --size-600: #{$gorko-base-size * 1.6};
-  --size-700: #{$gorko-base-size * 2};
-  --size-800: #{$gorko-base-size * 2.5};
-  --size-900: #{$gorko-base-size * 3};
-
   --measure: 60ch;
-  --grid-gap: var(--size-500);
-  --flow-space: var(--size-800);
-
+  --grid-gap: var(--s2);
+  --flow-space: var(--s2);
 }
 
 $gorko-size-scale: (
+        '-500': var(--s-5),
+        '-400': var(--s-4),
+        '-300': var(--s-3),
+        '-200': var(--s-2),
+        '-100': var(--s-1),
         '000': 0,
-        '300': var(--size-300),
-        '400': var(--size-400),
-        '500': var(--size-500),
-        '600': var(--size-600),
-        '700': var(--size-700),
-        '800': var(--size-800),
-        '900': var(--size-900)
+        '100': var(--s0),
+        '200': var(--s1),
+        '300': var(--s2),
+        '400': var(--s3),
+        '500': var(--s4),
+        '600': var(--s5)
 );
 
 /// COLORS

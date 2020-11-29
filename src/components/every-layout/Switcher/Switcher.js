@@ -5,6 +5,7 @@
  * @property {string} space=var(--s1) A CSS `margin` value
  * @property {integer} limit=4 A number representing the maximum number of items permitted for a horizontal layout
  */
+import('./Switcher.css')
 export default class Switcher extends HTMLElement {
   constructor() {
     super();

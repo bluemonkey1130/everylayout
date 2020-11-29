@@ -7,6 +7,7 @@
  * @property {string} height=auto The height of the Reel itself
  * @property {boolean} noBar=false Whether to display the scrollbar
  */
+import './Reel.css'
 export default class Reel extends HTMLElement {
   constructor() {
     super();

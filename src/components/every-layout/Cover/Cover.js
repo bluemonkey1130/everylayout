@@ -8,6 +8,7 @@
  * @property {string} minHeight=100vh The minimum height for the **Cover**
  * @property {boolean} noPad=false Whether the spacing is also applied as padding to the container element
  */
+import './Cover.css'
 export default class Cover extends HTMLElement {
   constructor() {
     super();

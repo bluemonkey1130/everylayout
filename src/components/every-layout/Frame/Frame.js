@@ -4,6 +4,7 @@
  * A custom element for augmenting image ratios
  * @property {string} ratio=16:9 The element's aspect ratio
  */
+import './Frame.css'
 export default class Frame extends HTMLElement {
   constructor() {
     super();

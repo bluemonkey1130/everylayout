@@ -6,23 +6,25 @@
     grid-auto-rows: minmax(min-content, max-content);
     grid-template-columns: [full-start] minmax(calc(calc(100% - 1500px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1500px) / 2), 1fr) [full-end];
     grid-template-rows: auto;
-    margin: 0 auto var(--gridsize) auto;
+    margin: 0 auto var(--grid-gap) auto;
     max-width: calc(var(--measure) * 5);
     position: relative;
   }
   .grid, .grid-layout {
+    &.narrow {
+      grid-column-start: 4;
+      grid-column-end: 12;
+    }
     &.align-wide {
       grid-column-start: 2;
       grid-column-end: 14;
     }
-
     &.align-full {
       grid-column-start: 1;
       grid-column-end: 15;
     }
   }
   .grid {
-    // Auto columns with the same width
     align-items: stretch;
     display: grid;
     grid-auto-flow: dense;

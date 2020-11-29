@@ -41,7 +41,7 @@ Successive rows can be used to create whole pages
     </section>
 </article>
 ```
-`.grid-row` is a wrapper for as many `.grid` elements as you want. Each `.grid` element can be set to a different widths: `standard`, `alignwide` & `alignfull`.
+`.grid-row` is a wrapper for as many `.grid` elements as you want. Each `.grid` element can be set to a different widths: `standard`, `alignwide`, `alignfull` & `narrow`.
 
 In this image you can see the different widths: the top row is `.align-full`, the second row is `.align-wide` and the bottom row is aligned to the `.standard` witdth 
 
@@ -63,6 +63,10 @@ This approach allows flexibility when building up pages with combinations of col
 ```
 This CSS grid applied to `.grid-row` is a 14 column grid, 12 have a fixed width, and the two outermost spread to as large a possible. This is used control the `.grid` width options:
 ```scss
+.narrow { 
+  grid-column-start: 4;
+  grid-column-end: 12;
+}
 .standard { // Declared as the default, no need to declare the class
   grid-column-start: 3;
   grid-column-end: 13;
@@ -133,7 +137,7 @@ Whereas the `.grid-layout` class, which can be used in the place of `.grid` will
 ```
 These classes can be used to enforce column structures like below
 ```scss
-.has-one-column / .has-two-columns / .has-three-columns / .has-four-columns etc / ...
+.has-one-column / .has-two-columns / .has-three-columns / .has-four-columns / ...
 ```
 ```html
 <article class="grid-row">

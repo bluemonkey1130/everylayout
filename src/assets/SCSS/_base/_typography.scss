@@ -9,13 +9,17 @@
 
 }
 
+// Global CSS starts
 body {
-  color: get-color('primary');
+  line-height: 1.5;
+  overflow-x: hidden;
+  padding-bottom: var(--size-600);
+  @include apply-utility('weight', 'medium');
 }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  margin-bottom: get-size('400');
+  margin-bottom: var(--size-400);
   font-family: $headings-font-family;
   font-weight: 100;
 }
@@ -54,4 +58,17 @@ p {
   font-family: $paragraph-font-family;
   font-weight: 100;
 
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+:focus {
+  outline: 2px dotted;
+  outline-offset: 0.25rem;
 }

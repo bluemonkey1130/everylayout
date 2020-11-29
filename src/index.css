@@ -988,7 +988,9 @@ img:not([alt]) {
   font-style: normal;
 }
 body {
-  color: var(--primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  padding-bottom: var(--size-600);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1033,6 +1035,19 @@ p {
   font-weight: 100;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+:focus {
+  outline: 2px dotted;
+  outline-offset: 0.25rem;
+}
+
 @supports (display: grid) {
   .grid-row {
     align-items: stretch;
@@ -1041,11 +1056,15 @@ p {
     grid-auto-rows: minmax(min-content, max-content);
     grid-template-columns: [full-start] minmax(calc(calc(100% - 1500px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1500px) / 2), 1fr) [full-end];
     grid-template-rows: auto;
-    margin: 0 auto var(--gridsize) auto;
+    margin: 0 auto var(--grid-gap) auto;
     max-width: calc(var(--measure) * 5);
     position: relative;
   }
 
+  .grid.narrow, .grid-layout.narrow {
+    grid-column-start: 4;
+    grid-column-end: 12;
+  }
   .grid.align-wide, .grid-layout.align-wide {
     grid-column-start: 2;
     grid-column-end: 14;

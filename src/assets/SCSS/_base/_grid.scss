@@ -32,6 +32,7 @@
     grid-column-start: 3;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
+
   .grid-layout {
     align-items: stretch;
     display: grid;

@@ -19,11 +19,12 @@ class App extends Component {
     }
 
     render() {
+
         return (
             <Fragment>
                 <Header content={this.state.header}/>
                 <article className="grid-row">
-                    <section className="grid">
+                    <section className="grid" data-min="20rem">
                         <div className="cover">
                             <h1 className="align-center">{this.state.reallyShortText}</h1>
                             <p className="align-center">{this.state.shortText}</p>

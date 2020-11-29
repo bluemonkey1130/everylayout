@@ -1,6 +1,6 @@
 .switcher > * {
   /* ↓ The space value; the first point on the modular scale */
-  --space: var(--size-400);
+  --space: var(--s0);
   /* ↓ Establish the flex context and allow wrapping */
   display: flex;
   flex-wrap: wrap;

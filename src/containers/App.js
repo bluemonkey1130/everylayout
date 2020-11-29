@@ -1,5 +1,15 @@
 import React, {Component, Fragment} from 'react';
 import Header from "../components/Header/Header";
+import Grid from "../components/every-layout/Grid/Grid";
+import Box from "../components/every-layout/Box/Box";
+import Stack from "../components/every-layout/Stack/Stack";
+import Reel from "../components/every-layout/Reel/Reel";
+import Center from "../components/every-layout/Center/Center";
+import Cover from "../components/every-layout/Cover/Cover";
+import Frame from "../components/every-layout/Frame/Frame";
+import Sidebar from "../components/every-layout/Sidebar/Sidebar";
+import Switcher from "../components/every-layout/Switcher/Switcher";
+import Cluster from "../components/every-layout/Cluster/Cluster";
 
 
 class App extends Component {
@@ -24,211 +34,133 @@ class App extends Component {
         return (
             <Fragment>
                 <Header content={this.state.header}/>
+                <grid-l min="250px" space="var(--s1)">
+                </grid-l>
+
+
                 <article className="grid-row">
-                    <section className="grid">
-                        <div className="cover">
-                            <h1 className="align-center">{this.state.reallyShortText}</h1>
-                            <p className="align-center">{this.state.shortText}</p>
-                        </div>
+                    <section className="grid align-full">
+                        <cover-l minHeight="100vh" centered="center-l">
+                            <center-l andText>
+                                <stack-l space="0rem">
+                                    <h1>{this.state.reallyShortText}</h1>
+                                    <p>{this.state.shortText}</p>
+                                </stack-l>
+                            </center-l>
+                        </cover-l>
                     </section>
                     <section className="grid">
-                        <div className="stack align-center">
-                            <figure className="frame">
+                        <stack-l className="align-center">
+                            <frame-l ratio="16:9">
                                 <img src={this.state.img} alt="Text"/>
-                            </figure>
-                            <div className="center-l max-width:measure*2">
+                            </frame-l>
+                            <center-l andText>
                                 <h2>{this.state.shortText}</h2>
                                 <p>{this.state.longText}</p>
                                 <a href="#" className="button call-to-action right">Read More</a>
+                            </center-l>
+                        </stack-l>
+                    </section>
+                    <section className="grid">
+                        <switcher-l>
+                            <div>
+                                <div>
+                                    <frame-l ratio="1:1">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </frame-l>
+                                </div>
+                                <div>
+                                    <frame-l ratio="1:1">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </frame-l>
+                                </div>
+                                <div>
+                                    <frame-l ratio="1:1">
+                                        <img src={this.state.img} alt="Text"/>
+                                    </frame-l>
+                                </div>
                             </div>
-                        </div>
+                        </switcher-l>
                     </section>
-                    <section className="grid align-full grid-gap-000">
-                        <figure className="frame">
-                            <img src={this.state.img} alt="Text"/>
-                        </figure>
-                        <figure className="frame">
-                            <img src={this.state.img} alt="Text"/>
-                        </figure>
-                        <figure className="frame">
-                            <img src={this.state.img} alt="Text"/>
-                        </figure>
-                    </section>
-                    <section className="grid align-wide">
+                    <section className="grid">
                         <div>
                             <h3>{this.state.shortText}</h3>
                             <p>{this.state.longText}</p>
                             <p>{this.state.longText}</p>
                         </div>
-                        <form className="stack stack-large">
-                            <div className="box">
-                                <div className="stack stack-small">
-                                    <h4>{this.state.reallyShortText}</h4>
-                                    <p>{this.state.text}.</p>
-                                </div>
-                                <div className="stack stack-small">
+                        <box-l>
+                            <stack-l space="1.5rem">
+                                <h4>{this.state.reallyShortText}</h4>
+                                <p>{this.state.text}.</p>
+                                <stack-l space="0.5rem">
                                     <label>Name</label>
                                     <input type="text"/>
-                                </div>
-                                <div className="stack stack-small">
+                                </stack-l>
+                                <stack-l space="0.5rem" splitAfter={3}>
                                     <label>Email*</label>
                                     <input type="email"/>
                                     <p>*please enter a valid email address</p>
-                                    <input className="button right" type="submit" value="Submit"/>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
-                    <section className="grid">
-                        <div className="stack stack-small">
-                            <figure className="frame">
-                                <img src={this.state.img} alt="Text"/>
-                            </figure>
-                            <p>{this.state.shortText}</p>
-                        </div>
-                        <div>
-                            <h3>{this.state.shortText}</h3>
-                            <p>{this.state.longText}.</p>
-                            <p>{this.state.text}</p>
-                        </div>
+                                    <input className="button" type="submit" value="Submit"/>
+                                </stack-l>
+                            </stack-l>
+                        </box-l>
                     </section>
                     <section className="grid align-full">
-                        <div className="reel">
-                            <img src={this.state.img} alt="Text"/>
-                            <img src={this.state.img} alt="Text"/>
-                            <img src={this.state.img} alt="Text"/>
-                            <img src={this.state.img} alt="Text"/>
-                            <img src={this.state.img} alt="Text"/>
-                        </div>
+                        <reel-l itemWidth="400px">
+                            <stack-l>
+                                <img src={this.state.img} alt="Text"/>
+                            </stack-l>
+                            <stack-l>
+                                <img src={this.state.img} alt="Text"/>
+                            </stack-l>
+                            <stack-l>
+                                <img src={this.state.img} alt="Text"/>
+                            </stack-l>
+                            <stack-l>
+                                <img src={this.state.img} alt="Text"/>
+                            </stack-l>
+                            <stack-l>
+                                <img src={this.state.img} alt="Text"/>
+                            </stack-l>
+                        </reel-l>
                     </section>
                     <section className="grid-layout has-two-columns right-wide">
-                        <div className="box">
+                        <box-l>
                             <h4>{this.state.shortText}</h4>
                             <p>{this.state.text}</p>
-                        </div>
-                        <div className="box invert">
+                        </box-l>
+                        <box-l className="invert">
                             <h4>{this.state.shortText}</h4>
                             <p>{this.state.longText}</p>
-                        </div>
+                        </box-l>
                     </section>
                     <section className="grid">
                         <div>
-                            <h3>{this.state.shortText}</h3>
-                            <h5>{this.state.shortText}</h5>
-                            <p>{this.state.reallyLongText}</p>
+                            <h4>{this.state.reallyShortText}</h4>
+                            <p>{this.state.longText}.</p>
                         </div>
-                        <div className="stack">
-                            <figure className="frame">
+                        <stack-l>
+                            <frame-l>
                                 <img src={this.state.img} alt="Text"/>
-                                <h3 className="align-center weight-bold color-tertiary">{this.state.shortText}</h3>
-                            </figure>
-                            <div className="stack stack-small box">
-                                <div>
-                                    <h4>Sign up</h4>
-                                    <p>{this.state.shortText}</p>
-                                </div>
-                                <div className="with-sidebar">
-                                    <div>
-                                        <input type="text"/>
-                                        <input className="button right" type="submit" value="Submit"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section className="grid">
-                        <div><p>{this.state.text}</p></div>
-                        <div><p>{this.state.text}</p></div>
-                    </section>
-                    <section className="grid">
-                        <div className="reel">
-                            <div className="box invert">
-                                <div className="stack">
-                                    <div className="frame">
-                                        <img src={this.state.img} alt="Text"/>
-                                    </div>
-                                    <div>
-                                        <h4>{this.state.reallyShortText}</h4>
-                                        <p>{this.state.shortText}.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="box">
-                                <div className="stack">
-                                    <div className="frame">
-                                        <img src={this.state.img} alt="Text"/>
-                                    </div>
-                                    <div>
-                                        <h4>{this.state.reallyShortText}</h4>
-                                        <p>{this.state.shortText}.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="box invert">
-                                <div className="stack">
-                                    <div className="frame">
-                                        <img src={this.state.img} alt="Text"/>
-                                    </div>
-                                    <div>
-                                        <h4>{this.state.reallyShortText}</h4>
-                                        <p>{this.state.shortText}.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="box">
-                                <div className="stack">
-                                    <div className="frame">
-                                        <img src={this.state.img} alt="Text"/>
-                                    </div>
-                                    <div>
-                                        <h4>{this.state.reallyShortText}</h4>
-                                        <p>{this.state.shortText}.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="box invert">
-                                <div className="stack">
-                                    <div className="frame">
-                                        <img src={this.state.img} alt="Text"/>
-                                    </div>
-                                    <div>
-                                        <h4>{this.state.reallyShortText}</h4>
-                                        <p>{this.state.shortText}.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="box">
-                                <div className="stack">
-                                    <div className="frame">
-                                        <img src={this.state.img} alt="Text"/>
-                                    </div>
-                                    <div>
-                                        <h4>{this.state.reallyShortText}</h4>
-                                        <p>{this.state.shortText}.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="box invert">
-                                <div className="stack">
-                                    <div className="frame">
-                                        <img src={this.state.img} alt="Text"/>
-                                    </div>
-                                    <div>
-                                        <h4>{this.state.reallyShortText}</h4>
-                                        <p>{this.state.shortText}.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section className="grid">
-                        <div className="switcher">
-                            <div>
-                                <div><p>{this.state.text}</p></div>
-                                <div><p>{this.state.text}</p></div>
-                                <div><p>{this.state.text}</p></div>
-                            </div>
-                        </div>
+                            </frame-l>
+                            <box-l>
+                                <stack-l space="2rem">
+                                    <stack-l space="1rem">
+                                        <h4>Sign up</h4>
+                                        <p>{this.state.text}</p>
+                                    </stack-l>
+                                    <sidebar-l space="var(--s2)" side="right" sideWidth="5ch">
+                                        <div>
+                                            <div>
+                                                <label>Email*</label>
+                                                <input type="text"/>
+                                            </div>
+                                            <input className="button right" type="submit" value="Submit"/>
+                                        </div>
+                                    </sidebar-l>
+                                </stack-l>
+                            </box-l>
+                        </stack-l>
                     </section>
                 </article>
             </Fragment>

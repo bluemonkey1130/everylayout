@@ -1,31 +1,27 @@
 #header {
-  --space: var(--size-500);
+  --space: var(--s0);
   padding: var(--space) 0;
   background-color: var(--light);
-  &.fixed{
+
+  &.fixed {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 2;
   }
-  &.sticky{
+
+  &.sticky {
     position: sticky;
     top: 0;
     z-index: 2;
   }
-  .cluster {
-    justify-content: space-between;
-    align-items: center;
 
-    .logo {
-      max-width: 100px;
-    }
+  .logo {
+    max-width: 100px;
+  }
 
-    nav {
-      ul {
-        padding-left: 0;
-        list-style: none;
-      }
-    }
+  ul {
+    padding-left: 0;
+    list-style: none;
   }
 }

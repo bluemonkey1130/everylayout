@@ -1,0 +1,20 @@
+box-l {
+  --border-thin: 1px;
+  display: block;
+  padding: var(--s1);
+  /* ↓ Assumes you have a --border-thin var */
+  border: var(--border-thin) solid var(--primary);
+  /* ↓ For high contrast mode */
+  outline: var(--border-thin) solid transparent;
+  outline-offset: calc(var(--border-thin) * -1);
+  /*color: var(--primary);*/
+  /*background-color: var(--light);*/
+}
+box-l * {
+  /* ↓ Force colors to inherit from the parent
+  and honor inversion (below) */
+  color: inherit;
+}
+box-l *:nth-last-child(1):not(.button) {
+  margin-bottom: 0;
+}

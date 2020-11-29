@@ -5,11 +5,11 @@
 .with-sidebar > * {
   display: flex;
   flex-wrap: wrap;
-  margin: calc(var(--size-500) / 2 * -1);
+  margin: calc(var(--s1) / 2 * -1);
 }
 
 .with-sidebar > * > * {
-  margin: calc(var(--size-500) / 2);
+  margin: calc(var(--s1) / 2);
   flex-basis: 2rem;
   flex-grow: 1;
 }
@@ -17,9 +17,9 @@
 .with-sidebar > * > :first-child {
   flex-basis: 0;
   flex-grow: 999;
-  min-width: calc(50% - var(--size-500));
+  min-width: calc(50% - var(--s1));
 }
 
 .with-sidebar > * > :last-child {
-  margin: calc(var(--size-500) / 2);
+  margin: calc(var(--s1) / 2);
 }

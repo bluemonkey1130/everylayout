@@ -323,6 +323,7 @@ Name         | Type      | Default       | Description                  |
     </cover-l>
 </grid-l>
 ````
+![Full width hero section with centered text](./src/assets/images/hero.png "Full width hero section with centered text")
 ##### Centered stack of image and text
 ````html
 <grid-l min="calc(var(--measure)*5)">
@@ -338,7 +339,8 @@ Name         | Type      | Default       | Description                  |
     </stack-l>
 </grid-l>
 ````
-##### Switcher with frame images
+![Centered stack of image and text](./src/assets/images/Centered-stack-of-image-and-text.png "Centered stack of image and text")
+##### full width row with switcher with square images
 ````html
 <grid-l min="calc(var(--measure)*5)" class="align-full">
     <switcher-l>
@@ -362,6 +364,7 @@ Name         | Type      | Default       | Description                  |
     </switcher-l>
 </grid-l>
 ````
+![full width row with switcher with square images](./src/assets/images/switcher.png "full width row with switcher with square images")
 ##### Box & Stacks  
 ````html
 <grid-l min="calc(var(--measure)/1.5)">
@@ -388,7 +391,9 @@ Name         | Type      | Default       | Description                  |
     </box-l>
 </grid-l>
 ````
-##### Reel of images set to full width  
+![Box & Stacks](./src/assets/images/boxstacks.png "Box & Stacks")
+
+##### Full width Reel of images 
 ````html
 <grid-l min="calc(var(--measure)*5)" class="align-full">
     <reel-l itemWidth="400px">
@@ -410,6 +415,8 @@ Name         | Type      | Default       | Description                  |
     </reel-l>
 </grid-l>
 ````
+![Full width Reel of images](./src/assets/images/reel.png "Full width Reel of images")
+
 ##### Two boxes
 ````html
 <grid-l min="calc(var(--measure)/1.5)">
@@ -423,6 +430,8 @@ Name         | Type      | Default       | Description                  |
     </box-l>
 </grid-l>
 ````
+![Boxes](./src/assets/images/boxes.png "Boxes")
+
 ##### Frames & boxes inside stacks
 ````html
 <grid-l min="calc(var(--measure)/1.5)">
@@ -454,4 +463,5 @@ Name         | Type      | Default       | Description                  |
     </stack-l>
 </grid-l>
 ````
+![Frames & boxes inside stacks](./src/assets/images/frame-stack.png "Frames & boxes inside stacks")
 

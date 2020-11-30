@@ -33,7 +33,7 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <Header content={this.state.header}/>
+                {/*<Header content={this.state.header}/>*/}
                 <article className="grid-row">
                     <grid-l min="calc(var(--measure)*5)" class="align-full">
                         <cover-l minHeight="100vh" centered="center-l">

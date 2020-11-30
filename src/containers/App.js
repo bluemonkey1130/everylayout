@@ -24,7 +24,7 @@ class App extends Component {
             <Fragment>
                 <Header content={this.state.header}/>
                 <article className="grid-row">
-                    <section className="grid" data-min="20rem">
+                    <section className="grid">
                         <div className="cover">
                             <h1 className="align-center">{this.state.reallyShortText}</h1>
                             <p className="align-center">{this.state.shortText}</p>

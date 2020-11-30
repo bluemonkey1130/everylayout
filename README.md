@@ -102,21 +102,29 @@ By default they are set to the `standard` width, which doesn't need to be declar
 ```
 `.grid-row`'s can be separated out to allow for further separation when wanting to apply different background colours or images that should span full width
 ```html
-<article>
+<article class="grid-row bg-primary">
+    <section class="grid-row">
+        <div class="grid align-wide">
+            <div><!-- --></div> 
+            <div><!-- --></div>  
+        </div>
+    </section>
     <section class="grid-row bg-primary">
         <div class="grid align-wide">
             <div><!-- --></div> 
             <div><!-- --></div>  
         </div>
     </section>
+</article>
+<article class="grid-row">
     <section class="grid-row">
         <div class="grid">
             <div><!-- --></div> 
             <div><!-- --></div>  
         </div>
     </section>
-    <section class="grid-row bg-primary">
-        <div class="grid align-wide">
+    <section class="grid-row">
+        <div class="grid">
             <div><!-- --></div> 
             <div><!-- --></div>  
         </div>

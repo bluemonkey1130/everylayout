@@ -139,7 +139,7 @@ The grid gap default value can be set via custom `space` attribute:
 grid-gap: ${this.space};
 ```` 
 So a custom `grid-l` set up would look like this
-````jsx
+````html
 <grid-l min="calc(var(--measure)*5)" space="var(--measure)" class="align-full">
      <div><!-- --></div> 
      <div><!-- --></div>  
@@ -311,7 +311,7 @@ Name         | Type      | Default       | Description                  |
 `noStretch`  | `boolean` | `"false"`     | Make the adjacent elements adopt their natural height                                                            |
 ### Example usage:
 ##### Full width hero section with centered text
-````jsx
+````html
 <grid-l min="calc(var(--measure)*5)" class="align-full">
     <cover-l minHeight="100vh" centered="center-l">
         <center-l andText>
@@ -324,7 +324,7 @@ Name         | Type      | Default       | Description                  |
 </grid-l>
 ````
 ##### Centered stack of image and text
-````jsx
+````html
 <grid-l min="calc(var(--measure)*5)">
     <stack-l>
         <frame-l ratio="16:9">
@@ -339,7 +339,7 @@ Name         | Type      | Default       | Description                  |
 </grid-l>
 ````
 ##### Switcher with frame images
-````jsx
+````html
 <grid-l min="calc(var(--measure)*5)" class="align-full">
     <switcher-l>
         <div>
@@ -363,7 +363,7 @@ Name         | Type      | Default       | Description                  |
 </grid-l>
 ````
 ##### Box & Stacks  
-````jsx
+````html
 <grid-l min="calc(var(--measure)/1.5)">
     <div>
         <h3>{this.state.shortText}</h3>
@@ -389,7 +389,7 @@ Name         | Type      | Default       | Description                  |
 </grid-l>
 ````
 ##### Reel of images set to full width  
-````jsx
+````html
 <grid-l min="calc(var(--measure)*5)" class="align-full">
     <reel-l itemWidth="400px">
         <stack-l>
@@ -411,7 +411,7 @@ Name         | Type      | Default       | Description                  |
 </grid-l>
 ````
 ##### Two boxes
-````jsx
+````html
 <grid-l min="calc(var(--measure)/1.5)">
     <box-l>
         <h4>{this.state.shortText}</h4>
@@ -424,7 +424,7 @@ Name         | Type      | Default       | Description                  |
 </grid-l>
 ````
 ##### Frames & boxes inside stacks
-````jsx
+````html
 <grid-l min="calc(var(--measure)/1.5)">
     <div>
         <h4>{this.state.reallyShortText}</h4>

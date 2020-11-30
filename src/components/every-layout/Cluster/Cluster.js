@@ -49,7 +49,7 @@ export default class Cluster extends HTMLElement {
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s1)';
+    return this.getAttribute('space') || 'var(--s2)';
   }
 
   set space(val) {

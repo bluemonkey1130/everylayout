@@ -9,7 +9,7 @@ class Header extends Component {
         let rowWidth = this.props.content.width;
         return (
             <header id="header" className="grid-row fixed">
-                <div className={["grid-layout", rowWidth, "has-one-column"].join(' ')}>
+                <grid-l min="calc(var(--measure)*3)">
                     <sidebar-l space="var(--s2)" side="left" sideWidth="10ch">
                         <div>
                             <img className="logo" src={this.props.content.img} alt="Text"/>
@@ -24,7 +24,7 @@ class Header extends Component {
                             </cluster-l>
                         </div>
                     </sidebar-l>
-                </div>
+                </grid-l>
             </header>
         );
     }

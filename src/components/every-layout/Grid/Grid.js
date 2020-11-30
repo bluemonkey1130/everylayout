@@ -6,6 +6,7 @@
  * @property {string} space=var(--s1) The space between grid cells
  */
 import './Grid.css'
+
 export default class Grid extends HTMLElement {
   constructor() {
     super();
@@ -22,7 +23,7 @@ export default class Grid extends HTMLElement {
 
           @supports (width: min(${this.min}, 100%)) {
             [data-i="${this.i}"] {
-              grid-template-columns: repeat(auto-fill, minmax(min(${this.min}, 100%), 1fr));
+              grid-template-columns: repeat(auto-fit, minmax(min(${this.min}, 100%), 1fr));
             }
           }
         `.replace(/\s\s+/g, ' ').trim();
@@ -40,7 +41,7 @@ export default class Grid extends HTMLElement {
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s1)';
+    return this.getAttribute('space') || 'var(--s2)';
   }
 
   set space(val) {

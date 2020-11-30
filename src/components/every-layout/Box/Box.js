@@ -28,7 +28,7 @@ export default class Box extends HTMLElement {
           }
       
           [data-i="${this.i}"] {
-            // background-color: inherit;
+            background-color: inherit;
           }
         `.replace(/\s\s+/g, ' ').trim();
                 document.head.appendChild(styleEl);
@@ -37,7 +37,7 @@ export default class Box extends HTMLElement {
     }
 
     get padding() {
-        return this.getAttribute('padding') || 'var(--s1)';
+        return this.getAttribute('padding') || 'var(--s2)';
     }
 
     set padding(val) {

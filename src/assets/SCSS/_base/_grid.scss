@@ -10,707 +10,707 @@
     max-width: calc(var(--measure) * 5);
     position: relative;
   }
-  .grid, .grid-layout {
-    &.align-wide {
-      grid-column-start: 2;
-      grid-column-end: 14;
-    }
-
-    &.align-full {
-      grid-column-start: 1;
-      grid-column-end: 15;
-    }
-  }
-  .grid {
-    // Auto columns with the same width
-    align-items: stretch;
-    display: grid;
-    grid-auto-flow: dense;
-    grid-column-end: 13;
-    grid-column-start: 3;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-  .grid-layout {
-    align-items: stretch;
-    display: grid;
-    grid-auto-flow: dense;
-    grid-auto-rows: minmax(min-content, max-content);
-    grid-column-end: 13;
-    grid-column-start: 3;
-    grid-row: auto;
-    grid-template-columns: 1fr;
-
-    &.has-two-columns {
-      display: inline-grid;
-      grid-template-columns: repeat(2, 1fr);
-
-      @media (max-width: $largeTablet) {
-        &:not(.ignore-large-tablet) {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: $tablet) {
-        &:not(.ignore-tablet) {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: $mobile) {
-        &:not(.ignore-mobile) {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      &.right-wide {
-        grid-template-columns: repeat(3, 1fr);
-
-        & > {
-          *:nth-child(2n+1) {
-            grid-column: auto/ span 1;
-          }
-
-          *:nth-child(2n+2) {
-            grid-column: auto/ span 2;
-          }
-        }
-
-        @media (max-width: $tablet) {
-          &:not(.ignore-tablet) {
-            grid-template-columns: repeat(2, 1fr);
-
-            & > {
-              *:nth-child(1n+1) {
-                grid-column: auto/ span 3;
-              }
-            }
-          }
-        }
-        @media (max-width: $phablet) {
-          &:not(.ignore-phablet) {
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: $mobile) {
-          &:not(.ignore-mobile) {
-            grid-template-columns: 1fr;
-          }
-        }
-      }
-
-      &.left-wide {
-        grid-template-columns: repeat(3, 1fr);
-
-        & > {
-          *:nth-child(2n+1) {
-            grid-column: auto/ span 2;
-          }
-
-          *:nth-child(2n+2) {
-            grid-column: auto/ span 1;
-          }
-        }
-
-        @media (max-width: $tablet) {
-          &:not(.ignore-tablet) {
-            grid-template-columns: repeat(2, 1fr);
-
-            & > {
-              *:nth-child(1n+1) {
-                grid-column: auto/ span 3;
-              }
-            }
-          }
-        }
-        @media (max-width: $phablet) {
-          &:not(.ignore-phablet) {
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: $mobile) {
-          &:not(.ignore-mobile) {
-            grid-template-columns: 1fr;
-          }
-        }
-      }
-    }
-
-    &.has-three-columns {
-      grid-template-columns: repeat(3, 1fr);
-      @media (max-width: $largeTablet) {
-        &:not(.ignore-large-tablet) {
-          grid-template-columns: repeat(2, 1fr);
-
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 1;
-            }
-
-            *:nth-last-child(1) {
-              grid-column: auto/ span 2;
-            }
-          }
-        }
-      }
-      @media (max-width: $tablet) {
-        &:not(.ignore-tablet) {
-          grid-template-columns: repeat(1, 1fr);
-
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 1;
-            }
-          }
-        }
-      }
-      @media (max-width: $mobile) {
-        &:not(.ignore-mobile) {
-          grid-template-columns: repeat(1, 1fr);
-        }
-      }
-
-      &.left-wide {
-        grid-template: auto / repeat(8, 1fr);
-
-        & > {
-          *:nth-child(3n+1) {
-            grid-column: auto/ span 4;
-          }
-
-          *:nth-child(3n+2) {
-            grid-column: auto/span 2;
-          }
-
-          *:nth-child(3n+3) {
-            grid-column: auto /span 2;
-          }
-        }
-
-        @media (max-width: $medium) {
-          &:not(.ignore-medium) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 4;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 4;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $largeTablet) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 4;
-            }
-
-            *:nth-child(3n+2) {
-              grid-column: auto/span 4;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-          &:not(.ignore-large-tablet) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 4;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 4;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $tablet) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 4;
-            }
-
-            *:nth-child(3n+2) {
-              grid-column: auto/span 4;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-          &:not(.ignore-tablet) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 8;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 8;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $phablet) {
-          &:not(.ignore-phablet) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 8;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 8;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $mobile) {
-          &:not(.ignore-mobile) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 8;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 8;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $smallmobile) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 8;
-            }
-
-            *:nth-child(3n+2) {
-              grid-column: auto/span 8;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-        }
-      }
-
-      &.right-wide {
-        grid-template: 1fr / repeat(8, 1fr);
-
-        & > {
-          *:nth-child(3n+1) {
-            grid-column: auto/ span 2;
-          }
-
-          *:nth-child(3n+2) {
-            grid-column: auto/span 2;
-          }
-
-          *:nth-child(3n+3) {
-            grid-column: auto /span 4;
-          }
-        }
-
-        @media (max-width: $medium) {
-          &:not(.ignore-medium) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 4;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 4;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $largeTablet) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 4;
-            }
-
-            *:nth-child(3n+2) {
-              grid-column: auto/span 4;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-          &:not(.ignore-large-tablet) {
-
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 4;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 4;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $tablet) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 4;
-            }
-
-            *:nth-child(3n+2) {
-              grid-column: auto/span 4;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-          &:not(.ignore-tablet) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 8;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 8;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $phablet) {
-          &:not(.ignore-phablet) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 8;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 8;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $mobile) {
-          &:not(.ignore-mobile) {
-            & > {
-              *:nth-child(3n+1) {
-                grid-column: auto/ span 8;
-              }
-
-              *:nth-child(3n+2) {
-                grid-column: auto/span 8;
-              }
-
-              *:nth-child(3n+3) {
-                grid-column: auto /span 8;
-              }
-            }
-          }
-        }
-        @media (max-width: $smallmobile) {
-          & > {
-            *:nth-child(3n+1) {
-              grid-column: auto/ span 8;
-            }
-
-            *:nth-child(3n+2) {
-              grid-column: auto/span 8;
-            }
-
-            *:nth-child(3n+3) {
-              grid-column: auto /span 8;
-            }
-          }
-        }
-      }
-
-      &.threeleft-split {
-        grid-template: repeat(2, auto) / repeat(8, 1fr);
-
-        & > {
-          *:nth-child(3n+1) {
-            grid-column: auto/ span 4;
-            grid-row: 1;
-          }
-
-          *:nth-child(3n+2) {
-            grid-column: auto/ span 4;
-            grid-row: 2;
-          }
-
-          *:nth-child(3n+3) {
-            grid-column: auto/ span 4;
-            grid-row: 1 / span 2
-          }
-        }
-
-        @media (max-width: $phablet) {
-          &:not(.ignore-phablet) {
-            & > {
-              *:nth-child(1n+1) {
-                grid-column: auto/ span 8;
-                grid-row: auto;
-              }
-            }
-          }
-        }
-        @media (max-width: $mobile) {
-          &.ignore-phablet {
-            & > {
-              *:nth-child(1n+1) {
-                grid-column: auto/ span 8;
-                grid-row: auto;
-              }
-            }
-          }
-        }
-      }
-
-      &.threeright-split {
-        grid-template: repeat(2, auto) / repeat(8, 1fr);
-
-        & > {
-          *:nth-child(3n+1) {
-            grid-column: auto/ span 4;
-            grid-row: 1 / span 2
-          }
-
-          *:nth-child(3n+2) {
-            grid-column: auto/ span 4;
-            grid-row: 1;
-          }
-
-          *:nth-child(3n+3) {
-            grid-column: auto/ span 4;
-            grid-row: 2;
-          }
-        }
-
-        @media (max-width: $phablet) {
-          &:not(.ignore-phablet) {
-            & > {
-              *:nth-child(1n+1) {
-                grid-column: auto/ span 8;
-                grid-row: auto;
-              }
-            }
-          }
-        }
-        @media (max-width: $mobile) {
-          &.ignore-phablet {
-            & > {
-              *:nth-child(1n+1) {
-                grid-column: auto/ span 8;
-                grid-row: auto;
-              }
-            }
-          }
-        }
-      }
-
-      &.eighty {
-        max-width: 80%;
-        margin: auto;
-        @media (max-width: $tablet) {
-          max-width: 100%;
-        }
-      }
-
-      &.sixty {
-        max-width: 60%;
-        margin: auto;
-        @media (max-width: $tablet) {
-          max-width: 100%;
-        }
-      }
-
-      &.fifty {
-        max-width: 50%;
-        margin: auto;
-        @media (max-width: $tablet) {
-          max-width: 100%;
-        }
-      }
-    }
-
-    &.has-four-columns {
-      &.row-four {
-        grid-template: repeat(1, auto) / repeat(4, 1fr);
-
-        @media (max-width: $medium) {
-          &:not(.ignore-medium) {
-            grid-template: repeat(2, auto) / repeat(2, 1fr);
-          }
-        }
-        @media (max-width: $largeTablet) {
-          &.ignore-medium {
-            grid-template: repeat(2, auto) / repeat(2, 1fr);
-          }
-          &:not(.ignore-large-tablet) {
-            grid-template: repeat(2, auto) / repeat(2, 1fr);
-          }
-        }
-        @media (max-width: $tablet) {
-          &:not(.ignore-tablet) {
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: $phablet) {
-          &:not(.ignore-phablet) {
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: $mobile) {
-          &:not(.ignore-mobile) {
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: $smallmobile) {
-          grid-template-columns: 1fr !important;
-        }
-      }
-
-      &.grid-four {
-        grid-template: repeat(2, auto) / repeat(2, 1fr);
-
-        @media (max-width: $phablet) {
-          &:not(.ignore-phablet) {
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: $mobile) {
-          &.ignore-phablet {
-            grid-template-columns: 1fr;
-          }
-        }
-      }
-    }
-
-    &.has-five-columns {
-      grid-template: repeat(1, auto) / repeat(5, 1fr);
-
-      @media (max-width: $medium) {
-        &:not(.ignore-medium) {
-          grid-template: auto / repeat(12, 1fr);
-
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 4;
-            }
-
-            *:nth-child(5n+4) {
-              grid-column: 3/ span 4;
-            }
-
-            *:nth-child(5n+5) {
-              grid-column: auto/ span 4;
-            }
-          }
-        }
-      }
-      @media (max-width: $largeTablet) {
-        &:not(.ignore-large-tablet) {
-          grid-template: auto / repeat(4, 1fr);
-
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 2;
-            }
-
-            *:nth-last-child(1) {
-              grid-column: auto/ span 4;
-            }
-          }
-        }
-      }
-      @media (max-width: $tablet) {
-        &:not(.ignore-tablet) {
-          grid-template: auto / repeat(2, 1fr);
-
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 2;
-            }
-          }
-        }
-      }
-      @media (max-width: $phablet) {
-        &:not(.ignore-phablet) {
-          grid-template: auto / repeat(2, 1fr);
-
-          & > {
-            *:nth-child(1n+1) {
-              grid-column: auto/ span 2;
-
-            }
-          }
-        }
-      }
-    }
-
-    &.has-six-columns {
-      grid-template: repeat(1, auto) / repeat(6, 1fr);
-      @media (max-width: $medium-large) {
-        &:not(.ignore-medium) {
-          grid-template: repeat(2, auto) / repeat(3, 1fr);
-        }
-      }
-      @media (max-width: $medium) {
-        &:not(.ignore-medium) {
-          grid-template: repeat(2, auto) / repeat(2, 1fr);
-        }
-      }
-      @media (max-width: $tablet) {
-        &:not(.ignore-tablet) {
-          grid-template: repeat(3, auto) / repeat(1, 1fr);
-        }
-      }
-      @media (max-width: $phablet) {
-        &:not(.ignore-mobile) {
-          grid-template: repeat(6, auto) / 1fr;
-        }
-      }
-    }
-  }
+  //.grid, .grid-layout {
+  //  &.align-wide {
+  //    grid-column-start: 2;
+  //    grid-column-end: 14;
+  //  }
+  //
+  //  &.align-full {
+  //    grid-column-start: 1;
+  //    grid-column-end: 15;
+  //  }
+  //}
+  //.grid {
+  //  // Auto columns with the same width
+  //  align-items: stretch;
+  //  display: grid;
+  //  grid-auto-flow: dense;
+  //  grid-column-end: 13;
+  //  grid-column-start: 3;
+  //  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  //}
+  //.grid-layout {
+  //  align-items: stretch;
+  //  display: grid;
+  //  grid-auto-flow: dense;
+  //  grid-auto-rows: minmax(min-content, max-content);
+  //  grid-column-end: 13;
+  //  grid-column-start: 3;
+  //  grid-row: auto;
+  //  grid-template-columns: 1fr;
+  //
+  //  &.has-two-columns {
+  //    display: inline-grid;
+  //    grid-template-columns: repeat(2, 1fr);
+  //
+  //    @media (max-width: $largeTablet) {
+  //      &:not(.ignore-large-tablet) {
+  //        grid-template-columns: 1fr;
+  //      }
+  //    }
+  //    @media (max-width: $tablet) {
+  //      &:not(.ignore-tablet) {
+  //        grid-template-columns: 1fr;
+  //      }
+  //    }
+  //    @media (max-width: $phablet) {
+  //      &:not(.ignore-phablet) {
+  //        grid-template-columns: 1fr;
+  //      }
+  //    }
+  //    @media (max-width: $mobile) {
+  //      &:not(.ignore-mobile) {
+  //        grid-template-columns: 1fr;
+  //      }
+  //    }
+  //
+  //    &.right-wide {
+  //      grid-template-columns: repeat(3, 1fr);
+  //
+  //      & > {
+  //        *:nth-child(2n+1) {
+  //          grid-column: auto/ span 1;
+  //        }
+  //
+  //        *:nth-child(2n+2) {
+  //          grid-column: auto/ span 2;
+  //        }
+  //      }
+  //
+  //      @media (max-width: $tablet) {
+  //        &:not(.ignore-tablet) {
+  //          grid-template-columns: repeat(2, 1fr);
+  //
+  //          & > {
+  //            *:nth-child(1n+1) {
+  //              grid-column: auto/ span 3;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $phablet) {
+  //        &:not(.ignore-phablet) {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //      @media (max-width: $mobile) {
+  //        &:not(.ignore-mobile) {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //    }
+  //
+  //    &.left-wide {
+  //      grid-template-columns: repeat(3, 1fr);
+  //
+  //      & > {
+  //        *:nth-child(2n+1) {
+  //          grid-column: auto/ span 2;
+  //        }
+  //
+  //        *:nth-child(2n+2) {
+  //          grid-column: auto/ span 1;
+  //        }
+  //      }
+  //
+  //      @media (max-width: $tablet) {
+  //        &:not(.ignore-tablet) {
+  //          grid-template-columns: repeat(2, 1fr);
+  //
+  //          & > {
+  //            *:nth-child(1n+1) {
+  //              grid-column: auto/ span 3;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $phablet) {
+  //        &:not(.ignore-phablet) {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //      @media (max-width: $mobile) {
+  //        &:not(.ignore-mobile) {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //    }
+  //  }
+  //
+  //  &.has-three-columns {
+  //    grid-template-columns: repeat(3, 1fr);
+  //    @media (max-width: $largeTablet) {
+  //      &:not(.ignore-large-tablet) {
+  //        grid-template-columns: repeat(2, 1fr);
+  //
+  //        & > {
+  //          *:nth-child(1n+1) {
+  //            grid-column: auto/ span 1;
+  //          }
+  //
+  //          *:nth-last-child(1) {
+  //            grid-column: auto/ span 2;
+  //          }
+  //        }
+  //      }
+  //    }
+  //    @media (max-width: $tablet) {
+  //      &:not(.ignore-tablet) {
+  //        grid-template-columns: repeat(1, 1fr);
+  //
+  //        & > {
+  //          *:nth-child(1n+1) {
+  //            grid-column: auto/ span 1;
+  //          }
+  //        }
+  //      }
+  //    }
+  //    @media (max-width: $mobile) {
+  //      &:not(.ignore-mobile) {
+  //        grid-template-columns: repeat(1, 1fr);
+  //      }
+  //    }
+  //
+  //    &.left-wide {
+  //      grid-template: auto / repeat(8, 1fr);
+  //
+  //      & > {
+  //        *:nth-child(3n+1) {
+  //          grid-column: auto/ span 4;
+  //        }
+  //
+  //        *:nth-child(3n+2) {
+  //          grid-column: auto/span 2;
+  //        }
+  //
+  //        *:nth-child(3n+3) {
+  //          grid-column: auto /span 2;
+  //        }
+  //      }
+  //
+  //      @media (max-width: $medium) {
+  //        &:not(.ignore-medium) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 4;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 4;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $largeTablet) {
+  //        & > {
+  //          *:nth-child(3n+1) {
+  //            grid-column: auto/ span 4;
+  //          }
+  //
+  //          *:nth-child(3n+2) {
+  //            grid-column: auto/span 4;
+  //          }
+  //
+  //          *:nth-child(3n+3) {
+  //            grid-column: auto /span 8;
+  //          }
+  //        }
+  //        &:not(.ignore-large-tablet) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 4;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 4;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $tablet) {
+  //        & > {
+  //          *:nth-child(3n+1) {
+  //            grid-column: auto/ span 4;
+  //          }
+  //
+  //          *:nth-child(3n+2) {
+  //            grid-column: auto/span 4;
+  //          }
+  //
+  //          *:nth-child(3n+3) {
+  //            grid-column: auto /span 8;
+  //          }
+  //        }
+  //        &:not(.ignore-tablet) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 8;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 8;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $phablet) {
+  //        &:not(.ignore-phablet) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 8;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 8;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $mobile) {
+  //        &:not(.ignore-mobile) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 8;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 8;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $smallmobile) {
+  //        & > {
+  //          *:nth-child(3n+1) {
+  //            grid-column: auto/ span 8;
+  //          }
+  //
+  //          *:nth-child(3n+2) {
+  //            grid-column: auto/span 8;
+  //          }
+  //
+  //          *:nth-child(3n+3) {
+  //            grid-column: auto /span 8;
+  //          }
+  //        }
+  //      }
+  //    }
+  //
+  //    &.right-wide {
+  //      grid-template: 1fr / repeat(8, 1fr);
+  //
+  //      & > {
+  //        *:nth-child(3n+1) {
+  //          grid-column: auto/ span 2;
+  //        }
+  //
+  //        *:nth-child(3n+2) {
+  //          grid-column: auto/span 2;
+  //        }
+  //
+  //        *:nth-child(3n+3) {
+  //          grid-column: auto /span 4;
+  //        }
+  //      }
+  //
+  //      @media (max-width: $medium) {
+  //        &:not(.ignore-medium) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 4;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 4;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $largeTablet) {
+  //        & > {
+  //          *:nth-child(3n+1) {
+  //            grid-column: auto/ span 4;
+  //          }
+  //
+  //          *:nth-child(3n+2) {
+  //            grid-column: auto/span 4;
+  //          }
+  //
+  //          *:nth-child(3n+3) {
+  //            grid-column: auto /span 8;
+  //          }
+  //        }
+  //        &:not(.ignore-large-tablet) {
+  //
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 4;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 4;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $tablet) {
+  //        & > {
+  //          *:nth-child(3n+1) {
+  //            grid-column: auto/ span 4;
+  //          }
+  //
+  //          *:nth-child(3n+2) {
+  //            grid-column: auto/span 4;
+  //          }
+  //
+  //          *:nth-child(3n+3) {
+  //            grid-column: auto /span 8;
+  //          }
+  //        }
+  //        &:not(.ignore-tablet) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 8;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 8;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $phablet) {
+  //        &:not(.ignore-phablet) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 8;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 8;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $mobile) {
+  //        &:not(.ignore-mobile) {
+  //          & > {
+  //            *:nth-child(3n+1) {
+  //              grid-column: auto/ span 8;
+  //            }
+  //
+  //            *:nth-child(3n+2) {
+  //              grid-column: auto/span 8;
+  //            }
+  //
+  //            *:nth-child(3n+3) {
+  //              grid-column: auto /span 8;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $smallmobile) {
+  //        & > {
+  //          *:nth-child(3n+1) {
+  //            grid-column: auto/ span 8;
+  //          }
+  //
+  //          *:nth-child(3n+2) {
+  //            grid-column: auto/span 8;
+  //          }
+  //
+  //          *:nth-child(3n+3) {
+  //            grid-column: auto /span 8;
+  //          }
+  //        }
+  //      }
+  //    }
+  //
+  //    &.threeleft-split {
+  //      grid-template: repeat(2, auto) / repeat(8, 1fr);
+  //
+  //      & > {
+  //        *:nth-child(3n+1) {
+  //          grid-column: auto/ span 4;
+  //          grid-row: 1;
+  //        }
+  //
+  //        *:nth-child(3n+2) {
+  //          grid-column: auto/ span 4;
+  //          grid-row: 2;
+  //        }
+  //
+  //        *:nth-child(3n+3) {
+  //          grid-column: auto/ span 4;
+  //          grid-row: 1 / span 2
+  //        }
+  //      }
+  //
+  //      @media (max-width: $phablet) {
+  //        &:not(.ignore-phablet) {
+  //          & > {
+  //            *:nth-child(1n+1) {
+  //              grid-column: auto/ span 8;
+  //              grid-row: auto;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $mobile) {
+  //        &.ignore-phablet {
+  //          & > {
+  //            *:nth-child(1n+1) {
+  //              grid-column: auto/ span 8;
+  //              grid-row: auto;
+  //            }
+  //          }
+  //        }
+  //      }
+  //    }
+  //
+  //    &.threeright-split {
+  //      grid-template: repeat(2, auto) / repeat(8, 1fr);
+  //
+  //      & > {
+  //        *:nth-child(3n+1) {
+  //          grid-column: auto/ span 4;
+  //          grid-row: 1 / span 2
+  //        }
+  //
+  //        *:nth-child(3n+2) {
+  //          grid-column: auto/ span 4;
+  //          grid-row: 1;
+  //        }
+  //
+  //        *:nth-child(3n+3) {
+  //          grid-column: auto/ span 4;
+  //          grid-row: 2;
+  //        }
+  //      }
+  //
+  //      @media (max-width: $phablet) {
+  //        &:not(.ignore-phablet) {
+  //          & > {
+  //            *:nth-child(1n+1) {
+  //              grid-column: auto/ span 8;
+  //              grid-row: auto;
+  //            }
+  //          }
+  //        }
+  //      }
+  //      @media (max-width: $mobile) {
+  //        &.ignore-phablet {
+  //          & > {
+  //            *:nth-child(1n+1) {
+  //              grid-column: auto/ span 8;
+  //              grid-row: auto;
+  //            }
+  //          }
+  //        }
+  //      }
+  //    }
+  //
+  //    &.eighty {
+  //      max-width: 80%;
+  //      margin: auto;
+  //      @media (max-width: $tablet) {
+  //        max-width: 100%;
+  //      }
+  //    }
+  //
+  //    &.sixty {
+  //      max-width: 60%;
+  //      margin: auto;
+  //      @media (max-width: $tablet) {
+  //        max-width: 100%;
+  //      }
+  //    }
+  //
+  //    &.fifty {
+  //      max-width: 50%;
+  //      margin: auto;
+  //      @media (max-width: $tablet) {
+  //        max-width: 100%;
+  //      }
+  //    }
+  //  }
+  //
+  //  &.has-four-columns {
+  //    &.row-four {
+  //      grid-template: repeat(1, auto) / repeat(4, 1fr);
+  //
+  //      @media (max-width: $medium) {
+  //        &:not(.ignore-medium) {
+  //          grid-template: repeat(2, auto) / repeat(2, 1fr);
+  //        }
+  //      }
+  //      @media (max-width: $largeTablet) {
+  //        &.ignore-medium {
+  //          grid-template: repeat(2, auto) / repeat(2, 1fr);
+  //        }
+  //        &:not(.ignore-large-tablet) {
+  //          grid-template: repeat(2, auto) / repeat(2, 1fr);
+  //        }
+  //      }
+  //      @media (max-width: $tablet) {
+  //        &:not(.ignore-tablet) {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //      @media (max-width: $phablet) {
+  //        &:not(.ignore-phablet) {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //      @media (max-width: $mobile) {
+  //        &:not(.ignore-mobile) {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //      @media (max-width: $smallmobile) {
+  //        grid-template-columns: 1fr !important;
+  //      }
+  //    }
+  //
+  //    &.grid-four {
+  //      grid-template: repeat(2, auto) / repeat(2, 1fr);
+  //
+  //      @media (max-width: $phablet) {
+  //        &:not(.ignore-phablet) {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //      @media (max-width: $mobile) {
+  //        &.ignore-phablet {
+  //          grid-template-columns: 1fr;
+  //        }
+  //      }
+  //    }
+  //  }
+  //
+  //  &.has-five-columns {
+  //    grid-template: repeat(1, auto) / repeat(5, 1fr);
+  //
+  //    @media (max-width: $medium) {
+  //      &:not(.ignore-medium) {
+  //        grid-template: auto / repeat(12, 1fr);
+  //
+  //        & > {
+  //          *:nth-child(1n+1) {
+  //            grid-column: auto/ span 4;
+  //          }
+  //
+  //          *:nth-child(5n+4) {
+  //            grid-column: 3/ span 4;
+  //          }
+  //
+  //          *:nth-child(5n+5) {
+  //            grid-column: auto/ span 4;
+  //          }
+  //        }
+  //      }
+  //    }
+  //    @media (max-width: $largeTablet) {
+  //      &:not(.ignore-large-tablet) {
+  //        grid-template: auto / repeat(4, 1fr);
+  //
+  //        & > {
+  //          *:nth-child(1n+1) {
+  //            grid-column: auto/ span 2;
+  //          }
+  //
+  //          *:nth-last-child(1) {
+  //            grid-column: auto/ span 4;
+  //          }
+  //        }
+  //      }
+  //    }
+  //    @media (max-width: $tablet) {
+  //      &:not(.ignore-tablet) {
+  //        grid-template: auto / repeat(2, 1fr);
+  //
+  //        & > {
+  //          *:nth-child(1n+1) {
+  //            grid-column: auto/ span 2;
+  //          }
+  //        }
+  //      }
+  //    }
+  //    @media (max-width: $phablet) {
+  //      &:not(.ignore-phablet) {
+  //        grid-template: auto / repeat(2, 1fr);
+  //
+  //        & > {
+  //          *:nth-child(1n+1) {
+  //            grid-column: auto/ span 2;
+  //
+  //          }
+  //        }
+  //      }
+  //    }
+  //  }
+  //
+  //  &.has-six-columns {
+  //    grid-template: repeat(1, auto) / repeat(6, 1fr);
+  //    @media (max-width: $medium-large) {
+  //      &:not(.ignore-medium) {
+  //        grid-template: repeat(2, auto) / repeat(3, 1fr);
+  //      }
+  //    }
+  //    @media (max-width: $medium) {
+  //      &:not(.ignore-medium) {
+  //        grid-template: repeat(2, auto) / repeat(2, 1fr);
+  //      }
+  //    }
+  //    @media (max-width: $tablet) {
+  //      &:not(.ignore-tablet) {
+  //        grid-template: repeat(3, auto) / repeat(1, 1fr);
+  //      }
+  //    }
+  //    @media (max-width: $phablet) {
+  //      &:not(.ignore-mobile) {
+  //        grid-template: repeat(6, auto) / 1fr;
+  //      }
+  //    }
+  //  }
+  //}
 }
 
 html.no-cssgrid {

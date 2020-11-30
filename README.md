@@ -57,7 +57,7 @@ This approach allows flexibility when building up pages with combinations of col
 ```
 This CSS grid applied to `.grid-row` is a 14 column grid, 12 have a fixed width, and the two outermost spread to as large a possible. This is used control the `.grid` width options:
 ```scss
-.narrow { // Declared as the default, no need to declare the class
+.narrow { 
   grid-column-start: 4;
   grid-column-end: 12;
 }
@@ -101,7 +101,7 @@ By default they are set to the `standard` width, which doesn't need to be declar
 ```
 `.grid-row`'s can be separated out to allow for further separation when wanting to apply different background colours or images that should span full width
 ```html
-<article class="grid-row bg-primary">
+<section class="grid-row bg-primary">
     <grid-l class="align-full">
          <div><!-- --></div> 
          <div><!-- --></div>  
@@ -112,8 +112,8 @@ By default they are set to the `standard` width, which doesn't need to be declar
          <div><!-- --></div>  
          <div><!-- --></div>
     </grid-l>
-</article>
-<article class="grid-row">
+</section>
+<section class="grid-row">
     <grid-l class="align-full">
          <div><!-- --></div> 
          <div><!-- --></div>  
@@ -124,7 +124,7 @@ By default they are set to the `standard` width, which doesn't need to be declar
          <div><!-- --></div>  
          <div><!-- --></div>
     </grid-l>
-</article>
+</section>
 ```
 The `grid-l` inside of the `.grid-row` automatically sets the column number to match the number of child elements with a minimum width of 250px by default
 ````scss    

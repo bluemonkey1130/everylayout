@@ -1,47 +1,41 @@
 ### This is a test build of a new set of css principles.
-#### This branch focuses on keeping CSS separate from Javascript, the other branch will use components
-I've leveraged **every layout** organisation ideas combined with my own styling. The idea is to create powerful CSS that is scalable and fast to write, I've done a few experiments with CSS applications in JavaScript Frameworks. And i think keeping CSS and JavaScript seperate is the best idea. Some of the component stuff does look powerful, but I'm unsure about it's effect on writing clean semantic markup.
+#### This branch focuses on keeping implementing custom Javascript styled components based on every layout css., the other branch will use css only
+I've leveraged **every layout** organisation ideas combined with my own styling. The idea is to create powerful CSS that is scalable and fast to write, I've done a few experiments with CSS applications in JavaScript Frameworks. The component stuff does look powerful, but I'm unsure about it's effect on writing clean semantic markup.
 A interesting part of this project is gorko, which is used to rapidly create utility classes based on CSS variables.
 
 **Pages are built upon the idea of grid rows, with the following structure.**
 ````html
 <article class="grid-row"> 
-    <section class="grid"><!-- automatic column number -->
-        <div><!-- --></div> 
-        <div><!-- --></div>  
-        <div><!-- --></div>  
-    </section>
+    <grid-l>
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l> 
 </article>
-```` 
-Any HTML elements can be used with the same class set up
-````html
-<header class="grid-row"> 
-    <nav class="grid">
-        <div><!-- --></div> 
-        <div><!-- --></div>  
-        <div><!-- --></div>  
-    </nav>
-</header>
 ```` 
 Successive rows can be used to create whole pages
 ```html
 <article class="grid-row">
-    <section id="title" class="grid"> <!-- One Column -->
-        <div><!-- --></div> 
-    </section>
-    <section id="text" class="grid"> <!-- Two Columns -->
-        <figure><!-- --></figure> 
-        <div><!-- --></div>  
-    </section>
-    <section id="gallery" class="grid"> <!-- Four Columns -->
-        <figure><!-- --></figure> 
-        <figure><!-- --></figure> 
-        <figure><!-- --></figure> 
-        <figure><!-- --></figure> 
-    </section>
+    <grid-l id="title">
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l> 
+    <grid-l id="text">
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l> 
+    <grid-l id="gallery">
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l> 
 </article>
 ```
-`.grid-row` is a wrapper for as many `.grid` elements as you want. Each `.grid` element can be set to a different widths: `standard`, `alignwide` & `alignfull`.
+`.grid-row` is a wrapper for as many `grid-l` elements as you want. Each `grid-l` element is a custom web component, it has various custom attributes. 
+
+It can be set to a different widths: `alignwide` & `alignfull`. using the `class` instead of `className` as it's a Web component.
 
 In this image you can see the different widths: the top row is `.align-full`, the second row is `.align-wide` and the bottom row is aligned to the `.standard` witdth 
 
@@ -63,6 +57,10 @@ This approach allows flexibility when building up pages with combinations of col
 ```
 This CSS grid applied to `.grid-row` is a 14 column grid, 12 have a fixed width, and the two outermost spread to as large a possible. This is used control the `.grid` width options:
 ```scss
+.narrow { // Declared as the default, no need to declare the class
+  grid-column-start: 4;
+  grid-column-end: 12;
+}
 .standard { // Declared as the default, no need to declare the class
   grid-column-start: 3;
   grid-column-end: 13;
@@ -79,45 +77,50 @@ This CSS grid applied to `.grid-row` is a 14 column grid, 12 have a fixed width,
 By default they are set to the `standard` width, which doesn't need to be declared  
 ```html
 <article class="grid-row">
-    <section class="grid">
-        <div><!-- --></div> 
-        <div><!-- --></div>  
-        <div><!-- --></div>
-    </section>
-    <section class="grid align-wide">
-        <div><!-- --></div> 
-        <div><!-- --></div>  
-        <div><!-- --></div>
-    </section>
-    <section class="grid align-full">
-        <div><!-- --></div> 
-        <div><!-- --></div>  
-        <div><!-- --></div>
-    </section>
+    <grid-l class="narrow">
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l> 
+    <grid-l>
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l> 
+    <grid-l class="align-wide">
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l> 
+    <grid-l class="align-full">
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l> 
 </article>
 ```
 `.grid-row`'s can be separated out to allow for further separation when wanting to apply different background colours or images that should span full width
 ```html
 <article>
-    <section class="grid-row bg-primary">
-        <div class="grid align-wide">
-            <div><!-- --></div> 
-            <div><!-- --></div>  
-        </div>
-    </section>
-    <section class="grid-row">
-        <div class="grid">
-            <div><!-- --></div> 
-            <div><!-- --></div>  
-        </div>
-    </section>
-    <section class="grid-row bg-primary">
-        <div class="grid align-wide">
-            <div><!-- --></div> 
-            <div><!-- --></div>  
-        </div>
-    </section>
+    <grid-l class="align-full bg-primary">
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l>
+    <grid-l>
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l>
+    <grid-l class="align-full bg-primary">
+         <div><!-- --></div> 
+         <div><!-- --></div>  
+         <div><!-- --></div>
+    </grid-l>
 </article>
+
+
+#### updated up to here
 ```
 The `.grid` inside of the `.grid-row` automatically sets the column number to match the number of child elements with a minimum width of 250px
 ````scss    

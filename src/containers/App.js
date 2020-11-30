@@ -34,23 +34,19 @@ class App extends Component {
         return (
             <Fragment>
                 <Header content={this.state.header}/>
-                <grid-l min="250px" space="var(--s1)">
-                </grid-l>
-
-
                 <article className="grid-row">
-                    <section className="grid align-full">
+                    <grid-l min="calc(var(--measure)*5)" class="align-full">
                         <cover-l minHeight="100vh" centered="center-l">
                             <center-l andText>
-                                <stack-l space="0rem">
+                                <stack-l space="1rem">
                                     <h1>{this.state.reallyShortText}</h1>
                                     <p>{this.state.shortText}</p>
                                 </stack-l>
                             </center-l>
                         </cover-l>
-                    </section>
-                    <section className="grid">
-                        <stack-l className="align-center">
+                    </grid-l>
+                    <grid-l min="calc(var(--measure)*5)">
+                        <stack-l>
                             <frame-l ratio="16:9">
                                 <img src={this.state.img} alt="Text"/>
                             </frame-l>
@@ -60,8 +56,8 @@ class App extends Component {
                                 <a href="#" className="button call-to-action right">Read More</a>
                             </center-l>
                         </stack-l>
-                    </section>
-                    <section className="grid">
+                    </grid-l>
+                    <grid-l min="calc(var(--measure)*5)">
                         <switcher-l>
                             <div>
                                 <div>
@@ -81,8 +77,8 @@ class App extends Component {
                                 </div>
                             </div>
                         </switcher-l>
-                    </section>
-                    <section className="grid">
+                    </grid-l>
+                    <grid-l min="calc(var(--measure)/1.5)">
                         <div>
                             <h3>{this.state.shortText}</h3>
                             <p>{this.state.longText}</p>
@@ -104,8 +100,8 @@ class App extends Component {
                                 </stack-l>
                             </stack-l>
                         </box-l>
-                    </section>
-                    <section className="grid align-full">
+                    </grid-l>
+                    <grid-l min="calc(var(--measure)*5)" class="align-full">
                         <reel-l itemWidth="400px">
                             <stack-l>
                                 <img src={this.state.img} alt="Text"/>
@@ -123,8 +119,8 @@ class App extends Component {
                                 <img src={this.state.img} alt="Text"/>
                             </stack-l>
                         </reel-l>
-                    </section>
-                    <section className="grid-layout has-two-columns right-wide">
+                    </grid-l>
+                    <grid-l min="calc(var(--measure)/1.5)">
                         <box-l>
                             <h4>{this.state.shortText}</h4>
                             <p>{this.state.text}</p>
@@ -133,8 +129,8 @@ class App extends Component {
                             <h4>{this.state.shortText}</h4>
                             <p>{this.state.longText}</p>
                         </box-l>
-                    </section>
-                    <section className="grid">
+                    </grid-l>
+                    <grid-l min="calc(var(--measure)/1.5)">
                         <div>
                             <h4>{this.state.reallyShortText}</h4>
                             <p>{this.state.longText}.</p>
@@ -161,7 +157,7 @@ class App extends Component {
                                 </stack-l>
                             </box-l>
                         </stack-l>
-                    </section>
+                    </grid-l>
                 </article>
             </Fragment>
         );

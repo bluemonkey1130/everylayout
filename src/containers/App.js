@@ -50,14 +50,14 @@ class App extends Component {
                             <frame-l ratio="16:9">
                                 <img src={this.state.img} alt="Text"/>
                             </frame-l>
-                            <center-l andText>
+                            <center-l andText max="var(--measure)">
                                 <h2>{this.state.shortText}</h2>
                                 <p>{this.state.longText}</p>
                                 <a href="#" className="button call-to-action right">Read More</a>
                             </center-l>
                         </stack-l>
                     </grid-l>
-                    <grid-l min="calc(var(--measure)*5)">
+                    <grid-l min="calc(var(--measure)*5)" class="align-full">
                         <switcher-l>
                             <div>
                                 <div>

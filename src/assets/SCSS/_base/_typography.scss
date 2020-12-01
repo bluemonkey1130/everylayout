@@ -9,43 +9,39 @@
 
 }
 
-// Global CSS starts
 body {
-  line-height: 1.5;
-  overflow-x: hidden;
-  padding-bottom: var(--size-600);
-  @include apply-utility('weight', 'medium');
+  color: get-color('primary');
 }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  margin-bottom: var(--size-400);
+  margin-bottom: var(--s2);
   font-family: $headings-font-family;
   font-weight: 100;
 }
 
 h1, .h1 {
-  font-size: var(--size-900);
+  font-size: var(--s4);
 }
 
 h2, .h2 {
-  font-size: var(--size-800);
+  font-size: var(--s3);
 }
 
 h3, .h3 {
-  font-size: var(--size-700);
+  font-size: var(--s2);
 }
 
 h4, .h4 {
-  font-size: var(--size-600);
+  font-size: var(--s2);
 }
 
 h5, .h5 {
-  font-size: var(--size-500);
+  font-size: var(--s1);
 }
 
 h6, .h6 {
-  font-size: var(--size-300);
+  font-size: var(--s0);
 }
 
 a {
@@ -53,22 +49,9 @@ a {
 }
 
 p {
-  font-size: var(--size-400);
-  margin-bottom: var(--size-400);
+  font-size: var(--s1);
+  margin-bottom: var(--s1);
   font-family: $paragraph-font-family;
   font-weight: 100;
 
-}
-
-table {
-  border-collapse: collapse;
-}
-
-th {
-  text-align: left;
-}
-
-:focus {
-  outline: 2px dotted;
-  outline-offset: 0.25rem;
 }

@@ -1,7 +1,7 @@
-### This is a test build of a new set of css principles.
+### This is a test build of a set of css principles.
 #### This branch focuses on keeping CSS separate from Javascript, the other branch will use components
-I've leveraged **every layout** organisation ideas combined with my own styling. The idea is to create powerful CSS that is scalable and fast to write, I've done a few experiments with CSS applications in JavaScript Frameworks. And i think keeping CSS and JavaScript seperate is the best idea. Some of the component stuff does look powerful, but I'm unsure about it's effect on writing clean semantic markup.
-A interesting part of this project is gorko, which is used to rapidly create utility classes based on CSS variables.
+I've leveraged **[Every Layout](https://every-layout.dev/)** organisation ideas combined with my own styling. The idea is to create powerful CSS that is scalable and fast to write, I've done a few experiments with CSS applications in JavaScript Frameworks. And i think keeping CSS and JavaScript seperate is the best idea. Some of the component stuff does look powerful, but I'm unsure about it's effect on writing clean semantic markup.
+A interesting part of this project is [Gorko](https://github.com/hankchizljaw/gorko), which is used to rapidly create utility classes based on CSS variables.
 
 **Pages are built upon the idea of grid rows, with the following structure.**
 ````html

@@ -1,41 +1,47 @@
-### This is a test build of a new set of css principles, using web components.
-#### This branch focuses on keeping implementing custom Javascript styled components based on every layout css., the other branch will use css only
-I've leveraged **every layout** organisation ideas combined with my own styling. The idea is to create powerful CSS that is scalable and fast to write, I've done a few experiments with CSS applications in JavaScript Frameworks. The component stuff does look powerful, but I'm unsure about it's effect on writing clean semantic markup.
-A interesting part of this project is gorko, which is used to rapidly create utility classes based on CSS variables.
+### This is a test build of a set of css principles.
+#### This branch focuses on keeping CSS separate from Javascript, the other branch will use components
+I've leveraged **[Every Layout](https://every-layout.dev/)** organisation ideas combined with my own styling. The idea is to create powerful CSS that is scalable and fast to write, I've done a few experiments with CSS applications in JavaScript Frameworks. And i think keeping CSS and JavaScript seperate is the best idea. Some of the component stuff does look powerful, but I'm unsure about it's effect on writing clean semantic markup.
+A interesting part of this project is [Gorko](https://github.com/hankchizljaw/gorko), which is used to rapidly create utility classes based on CSS variables.
 
 **Pages are built upon the idea of grid rows, with the following structure.**
 ````html
 <article class="grid-row"> 
-    <grid-l>
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l> 
+    <section class="grid"><!-- automatic column number -->
+        <div><!-- --></div> 
+        <div><!-- --></div>  
+        <div><!-- --></div>  
+    </section>
 </article>
+```` 
+Any HTML elements can be used with the same class set up
+````html
+<header class="grid-row"> 
+    <nav class="grid">
+        <div><!-- --></div> 
+        <div><!-- --></div>  
+        <div><!-- --></div>  
+    </nav>
+</header>
 ```` 
 Successive rows can be used to create whole pages
 ```html
 <article class="grid-row">
-    <grid-l id="title">
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l> 
-    <grid-l id="text">
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l> 
-    <grid-l id="gallery">
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l> 
+    <section id="title" class="grid"> <!-- One Column -->
+        <div><!-- --></div> 
+    </section>
+    <section id="text" class="grid"> <!-- Two Columns -->
+        <figure><!-- --></figure> 
+        <div><!-- --></div>  
+    </section>
+    <section id="gallery" class="grid"> <!-- Four Columns -->
+        <figure><!-- --></figure> 
+        <figure><!-- --></figure> 
+        <figure><!-- --></figure> 
+        <figure><!-- --></figure> 
+    </section>
 </article>
 ```
-`.grid-row` is a wrapper for as many `grid-l` elements as you want. Each `grid-l` element is a custom web component, it has various custom attributes. 
-
-It can be set to a different widths: `alignwide` & `alignfull`. using the `class` instead of `className` as it's a Web component.
+`.grid-row` is a wrapper for as many `.grid` elements as you want. Each `.grid` element can be set to a different widths: `standard`, `alignwide`, `alignfull` & `narrow`.
 
 In this image you can see the different widths: the top row is `.align-full`, the second row is `.align-wide` and the bottom row is aligned to the `.standard` witdth 
 
@@ -57,7 +63,7 @@ This approach allows flexibility when building up pages with combinations of col
 ```
 This CSS grid applied to `.grid-row` is a 14 column grid, 12 have a fixed width, and the two outermost spread to as large a possible. This is used control the `.grid` width options:
 ```scss
-.narrow { // Declared as the default, no need to declare the class
+.narrow { 
   grid-column-start: 4;
   grid-column-end: 12;
 }
@@ -77,68 +83,110 @@ This CSS grid applied to `.grid-row` is a 14 column grid, 12 have a fixed width,
 By default they are set to the `standard` width, which doesn't need to be declared  
 ```html
 <article class="grid-row">
-    <grid-l class="narrow">
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l> 
-    <grid-l>
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l> 
-    <grid-l class="align-wide">
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l> 
-    <grid-l class="align-full">
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l> 
+    <section class="grid">
+        <div><!-- --></div> 
+        <div><!-- --></div>  
+        <div><!-- --></div>
+    </section>
+    <section class="grid align-wide">
+        <div><!-- --></div> 
+        <div><!-- --></div>  
+        <div><!-- --></div>
+    </section>
+    <section class="grid align-full">
+        <div><!-- --></div> 
+        <div><!-- --></div>  
+        <div><!-- --></div>
+    </section>
 </article>
 ```
 `.grid-row`'s can be separated out to allow for further separation when wanting to apply different background colours or images that should span full width
 ```html
-<article>
-    <grid-l class="align-full bg-primary">
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l>
-    <grid-l>
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l>
-    <grid-l class="align-full bg-primary">
-         <div><!-- --></div> 
-         <div><!-- --></div>  
-         <div><!-- --></div>
-    </grid-l>
+<article class="grid-row bg-primary">
+    <section class="grid-row">
+        <div class="grid align-wide">
+            <div><!-- --></div> 
+            <div><!-- --></div>  
+        </div>
+    </section>
+    <section class="grid-row bg-primary">
+        <div class="grid align-wide">
+            <div><!-- --></div> 
+            <div><!-- --></div>  
+        </div>
+    </section>
+</article>
+<article class="grid-row">
+    <section class="grid-row">
+        <div class="grid">
+            <div><!-- --></div> 
+            <div><!-- --></div>  
+        </div>
+    </section>
+    <section class="grid-row">
+        <div class="grid">
+            <div><!-- --></div> 
+            <div><!-- --></div>  
+        </div>
+    </section>
 </article>
 ```
-The `grid-l` inside of the `.grid-row` automatically sets the column number to match the number of child elements with a minimum width of 250px by default
+The `.grid` inside of the `.grid-row` automatically sets the column number to match the number of child elements with a minimum width of 250px
 ````scss    
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 ````
-The minmax default value can be set via custom `min` attribute:
-````
-grid-template-columns: repeat(auto-fit, minmax(min(${this.min}, 100%), 1fr));
-```` 
-The grid gap default value can be set via custom `space` attribute:
-````
-grid-gap: ${this.space};
-```` 
-So a custom `grid-l` set up would look like this
-````jsx
-<grid-l min="calc(var(--measure)*5)" space="var(--measure)" class="align-full">
-     <div><!-- --></div> 
-     <div><!-- --></div>  
-     <div><!-- --></div>
-</grid-l>
-````
+Whereas the `.grid-layout` class, which can be used in the place of `.grid` will allow you to set fixed column structures, such as:
+```html
+<article class="grid-row">
+    <section class="grid-layout"> <!-- By default it will set up one column -->
+        <div><!-- --></div> 
+    </section>
+</article>
+```
+These classes can be used to enforce column structures like below
+```scss
+.has-one-column / .has-two-columns / .has-three-columns / .has-four-columns / ...
+```
+```html
+<article class="grid-row">
+    <section class="grid-layout has-two-columns"> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+</article>
+```
+Some of these layouts have modifier classes to adjust the ratios of the column structure
+```html
+<article class="grid-row">
+    <section class="grid-layout has-two-columns"> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+    <section class="grid-layout has-two-columns left-wide"> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+    <section class="grid-layout has-two-columns right-wide"> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+</article>
+```
+It will enforce the column layout regardless of the number of child elements.
+```html
+<article class="grid-row">
+    <section class="grid-layout has-three-columns">  <!-- Still three columns -->
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+        <div><!-- --></div> 
+    </section>
+</article>
+```
+### Modular scale
+[https://every-layout.dev/rudiments/modular-scale/](https://every-layout.dev/rudiments/modular-scale/)
 Global CSS variables are used to set/store all the values for `margins`, `max-width`,`grid-gap` & `padding` etc.... 
 
 These values can be set globally & adjusted for local elements. 
@@ -173,13 +221,15 @@ These values can be set globally & adjusted for local elements.
   --flow-space: var(--s2);
 }
 ```
-Multiplications of these base values are used to set  widths proportionally all over the site
+
+Multiplications of these base values are used to set widths proportionally all over the site
 ```scss
 .grid-row {
     margin: 0 auto var(--gridsize) auto;
     max-width: calc(var(--measure) * 5);
 }
 ```
+
 ````scss
 $gorko-size-scale: (
         '-500': var(--s-5),
@@ -195,9 +245,23 @@ $gorko-size-scale: (
         '500': var(--s4),
         '600': var(--s5)
 );
-
 ````
-Utility classes dynamically generated by Goko from these values, can be used to adjust elements
+### Utility classes 
+dynamically generated by Goko from these values, can be used to adjust elements
+````scss
+$gorko-config: (
+    'grid-gap': (
+            'items': $gorko-size-scale,
+            'output': 'responsive',
+            'property': 'grid-gap'
+    ),
+    'pad': (
+            'items': $gorko-size-scale,
+            'output': 'standard',
+            'property': 'padding'
+    ),
+)
+````
 ```scss
 .grid-gap-000 / .grid-gap-300 / .grid-gap-400 / .grid-gap-500 / .grid-gap-600 
 ```
@@ -207,191 +271,21 @@ Utility classes dynamically generated by Goko from these values, can be used to 
 ```scss
 .bg-primary / .bg-primary-shade / .bg-secondary / .bg-secondary-shade / .bg-tertiary 
 ```
-
-### Every Layout Web Components
-#### Grid
-````jsx
-<grid-l min="" space=""><!-- Content --></grid-l>
-````
-#### Stack
-````jsx
-<stack-l space="" recursive splitAfter=""><!-- Content --></stack-l>
-````
-#### Box
-````jsx
-<box-l padding="" invert borderWidth=""><!-- Content --></box-l>
-````
-#### Cover
-````jsx
-<cover-l centered="" space="" minHeight"" noPad><!-- Content --></cover-l>
-````
-#### Center
-````jsx
-<center-l max="" andText gutters intrinsic><!-- Content --></center-l>
-````
-#### Switcher
-````jsx
-<switcher-l threshold="" limit="" space=""><!-- Content --></switcher-l>
-````
-#### Cluster
-````jsx
-<cluster-l justify="" align="" space=""><!-- Content --></cluster-l>
-````
-#### Reel
-````jsx
-<reel-l itemWidth="" height="" space="" noBar><!-- Content --></reel-l>
-````
-#### Frame
-````jsx
-<frame-l ratio=""><!-- Content --></frame-l>
-````
-#### Frame
-````jsx
-<sidebar-l side="" sideWidth="" contentMin="" space="" noStretch=""><!-- Content --></sidebar-l>
-````
-### Example usage:
-##### Full width hero section with centered text
-````jsx
-<grid-l min="calc(var(--measure)*5)" class="align-full">
-    <cover-l minHeight="100vh" centered="center-l">
-        <center-l andText>
-            <stack-l space="1rem">
-                <h1>{this.state.reallyShortText}</h1>
-                <p>{this.state.shortText}</p>
-            </stack-l>
-        </center-l>
-    </cover-l>
-</grid-l>
-````
-##### Centered stack of image and text
-````jsx
-<grid-l min="calc(var(--measure)*5)">
-    <stack-l>
-        <frame-l ratio="16:9">
-            <img src={this.state.img} alt="Text"/>
-        </frame-l>
-        <center-l andText max="var(--measure)">
-            <h2>{this.state.shortText}</h2>
-            <p>{this.state.longText}</p>
-            <a href="#" className="button call-to-action right">Read More</a>
-        </center-l>
-    </stack-l>
-</grid-l>
-````
-##### Switcher with frame images
-````jsx
-<grid-l min="calc(var(--measure)*5)" class="align-full">
-    <switcher-l>
-        <div>
-            <div>
-                <frame-l ratio="1:1">
-                    <img src={this.state.img} alt="Text"/>
-                </frame-l>
-            </div>
-            <div>
-                <frame-l ratio="1:1">
-                    <img src={this.state.img} alt="Text"/>
-                </frame-l>
-            </div>
-            <div>
-                <frame-l ratio="1:1">
-                    <img src={this.state.img} alt="Text"/>
-                </frame-l>
-            </div>
-        </div>
-    </switcher-l>
-</grid-l>
-````
-##### Box & Stacks  
-````jsx
-<grid-l min="calc(var(--measure)/1.5)">
-    <div>
-        <h3>{this.state.shortText}</h3>
-        <p>{this.state.longText}</p>
-        <p>{this.state.longText}</p>
-    </div>
-    <box-l>
-        <stack-l space="1.5rem">
-            <h4>{this.state.reallyShortText}</h4>
-            <p>{this.state.text}.</p>
-            <stack-l space="0.5rem">
-                <label>Name</label>
-                <input type="text"/>
-            </stack-l>
-            <stack-l space="0.5rem" splitAfter={3}>
-                <label>Email*</label>
-                <input type="email"/>
-                <p>*please enter a valid email address</p>
-                <input className="button" type="submit" value="Submit"/>
-            </stack-l>
-        </stack-l>
-    </box-l>
-</grid-l>
-````
-##### Reel of images set to full width  
-````jsx
-<grid-l min="calc(var(--measure)*5)" class="align-full">
-    <reel-l itemWidth="400px">
-        <stack-l>
-            <img src={this.state.img} alt="Text"/>
-        </stack-l>
-        <stack-l>
-            <img src={this.state.img} alt="Text"/>
-        </stack-l>
-        <stack-l>
-            <img src={this.state.img} alt="Text"/>
-        </stack-l>
-        <stack-l>
-            <img src={this.state.img} alt="Text"/>
-        </stack-l>
-        <stack-l>
-            <img src={this.state.img} alt="Text"/>
-        </stack-l>
-    </reel-l>
-</grid-l>
-````
-##### Two boxes
-````jsx
-<grid-l min="calc(var(--measure)/1.5)">
-    <box-l>
-        <h4>{this.state.shortText}</h4>
-        <p>{this.state.text}</p>
-    </box-l>
-    <box-l className="invert">
-        <h4>{this.state.shortText}</h4>
-        <p>{this.state.longText}</p>
-    </box-l>
-</grid-l>
-````
-##### Frames & boxes inside stacks
-````jsx
-<grid-l min="calc(var(--measure)/1.5)">
-    <div>
-        <h4>{this.state.reallyShortText}</h4>
-        <p>{this.state.longText}.</p>
-    </div>
-    <stack-l>
-        <frame-l>
-            <img src={this.state.img} alt="Text"/>
-        </frame-l>
-        <box-l>
-            <stack-l space="2rem">
-                <stack-l space="1rem">
-                    <h4>Sign up</h4>
-                    <p>{this.state.text}</p>
-                </stack-l>
-                <sidebar-l space="var(--s2)" side="right" sideWidth="5ch">
-                    <div>
-                        <div>
-                            <label>Email*</label>
-                            <input type="text"/>
-                        </div>
-                        <input className="button right" type="submit" value="Submit"/>
-                    </div>
-                </sidebar-l>
-            </stack-l>
-        </box-l>
-    </stack-l>
-</grid-l>
-````
-
+This set up below makes a full width row with three columns & no gap between the elements
+```html
+<article class="grid-row">
+    <section class="grid align-full grid-gap-000">
+        <figure><!-- --></figure> 
+        <figure><!-- --></figure> 
+        <figure><!-- --></figure>
+    </section>
+</article>
+```
+A wide row with padding all around
+```html
+<article class="grid-row">
+    <section class="grid align-wide pad-500">
+        <div><!-- --></div>
+    </section>
+</article>
+```
